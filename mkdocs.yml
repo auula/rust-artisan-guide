@@ -6,71 +6,71 @@ docs_dir: "source"
 site_dir: "docs"
 
 theme:
-      name: material
-      logo: "/images/rust-logo-white.png"
-      favicon: "images/rust-logo.png"
-      palette:
-            primary: "black"
-            accent: "indigo"
-      font:
-            text: "Roboto"
-            code: "Roboto Mono"
+        name: material
+        logo: "/images/rust-logo-white.png"
+        favicon: "images/rust-logo.png"
+        palette:
+                primary: "black"
+                accent: "indigo"
+        font:
+                text: "Roboto"
+                code: "Roboto Mono"
 
 nav:
-      - 关于本站: index.md
-      - 目 录:
-              - "Rust 介绍": introduction.md
-              - "Rust 基础教程": basics.md
-              - "Rust 开发环境搭建": environment.md
-              - "Rust 您好世界": hello_world.md
-              - "Rust 数据类型": scalar_type.md
-              - "Rust 变量定义": variable.md
-              - "Rust 常量定义": const.md
-              - "Rust 字符串": string.md
-              - "Rust 运算符": operator.md
-              - "Rust 条件判断": condition.md
-              - "Rust 循环语句": loop_for.md
-              - "Rust 函数定义": function.md
-              - "Rust 元组Tuple": tuple.md
-              - "Rust 切片Slice": slice.md
-              - "Rust 枚举使用": enum.md
-              - "Rust 结构体": struct.md
-              - "Rust ownership": ownership.md
-              - "Rust 模块Modules": modules.md
-              - "Rust Collection": collection.md
-              - "Rust 错误处理": error.md
-              - "Rust 泛型使用": generosity.md
-              - "Rust I/O操作": w_r_io.md
-              - "Rust 包管理Cargo": cargo.md
-              - "Rust 迭代器 Iterator": iterator.md
-              - "Rust 闭包 Closure": closure.md
-              - "Rust 智能指针": pointer.md
-              - "Rust 并发编程": thread.md
+        - 关于本站: index.md
+        - 目 录:
+                  - "Rust 介绍": 01_介绍/rust_introduction.md
+                  - "Rust 基础教程": basics.md
+                  - "Rust 开发环境搭建": environment.md
+                  - "Rust 您好世界": hello_world.md
+                  - "Rust 数据类型": scalar_type.md
+                  - "Rust 变量定义": variable.md
+                  - "Rust 常量定义": const.md
+                  - "Rust 字符串": string.md
+                  - "Rust 运算符": operator.md
+                  - "Rust 条件判断": condition.md
+                  - "Rust 循环语句": loop_for.md
+                  - "Rust 函数定义": function.md
+                  - "Rust 元组Tuple": tuple.md
+                  - "Rust 切片Slice": slice.md
+                  - "Rust 枚举使用": enum.md
+                  - "Rust 结构体": struct.md
+                  - "Rust ownership": ownership.md
+                  - "Rust 模块Modules": modules.md
+                  - "Rust Collection": collection.md
+                  - "Rust 错误处理": error.md
+                  - "Rust 泛型使用": generosity.md
+                  - "Rust I/O操作": w_r_io.md
+                  - "Rust 包管理Cargo": cargo.md
+                  - "Rust 迭代器 Iterator": iterator.md
+                  - "Rust 闭包 Closure": closure.md
+                  - "Rust 智能指针": pointer.md
+                  - "Rust 并发编程": thread.md
 
 copyright: "Copyright &copy; 2021 Jarvib Ding"
 
 markdown_extensions:
-      - admonition # 提示块
-      - footnotes # 脚注
-      - meta # 定义元数据，通过文章上下文控制，如disqus
-      - pymdownx.caret # 下划线上标
-      - pymdownx.tilde # 删除线下标
-      - pymdownx.critic # 增加删除修改高亮注释，可修饰行内或段落
-      - pymdownx.details # 提示块可折叠
-      - pymdownx.inlinehilite # 行内代码高亮
-      - pymdownx.mark # 文本高亮
-      - pymdownx.smartsymbols # 符号转换
-      - pymdownx.superfences # 代码嵌套在列表里
-      - codehilite: # 代码高亮，显示行号
-              guess_lang: true
-              linenums: true
-      - toc: # 锚点
-              permalink: true
-      #  - pymdownx.arithmatex  # 数学公式
-      - pymdownx.betterem: # 对加粗和斜体更好的检测
-              smart_enable: all
-      #  - pymdownx.emoji:  # 表情
-      #      emoji_generator: !!python/name:pymdownx.emoji.to_svg
-      #  - pymdownx.magiclink  # 自动识别超链接
-      - pymdownx.tasklist: # 复选框checklist
-              custom_checkbox: true
+        - admonition # 提示块
+        - footnotes # 脚注
+        - meta # 定义元数据，通过文章上下文控制，如disqus
+        - pymdownx.caret # 下划线上标
+        - pymdownx.tilde # 删除线下标
+        - pymdownx.critic # 增加删除修改高亮注释，可修饰行内或段落
+        - pymdownx.details # 提示块可折叠
+        - pymdownx.inlinehilite # 行内代码高亮
+        - pymdownx.mark # 文本高亮
+        - pymdownx.smartsymbols # 符号转换
+        - pymdownx.superfences # 代码嵌套在列表里
+        - codehilite: # 代码高亮，显示行号
+                  guess_lang: true
+                  linenums: true
+        - toc: # 锚点
+                  permalink: true
+        #  - pymdownx.arithmatex  # 数学公式
+        - pymdownx.betterem: # 对加粗和斜体更好的检测
+                  smart_enable: all
+        #  - pymdownx.emoji:  # 表情
+        #      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+        #  - pymdownx.magiclink  # 自动识别超链接
+        - pymdownx.tasklist: # 复选框checklist
+                  custom_checkbox: true
