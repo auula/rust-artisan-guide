@@ -1,4 +1,4 @@
-site_name: Rust中文学习宝典
+site_name: Rust入门到地中海
 site_author: "Jarvib Ding"
 repo_name: "Get Rust"
 repo_url: "https://github.com/higker/getrust"
@@ -17,7 +17,7 @@ theme:
             code: "Roboto Mono"
 
 nav:
-      - 介 绍: index.md
+      - 关于本站: index.md
       - 目 录:
               - "Rust 介绍": introduction.md
               - "Rust 基础教程": basics.md
@@ -46,8 +46,6 @@ nav:
               - "Rust 闭包 Closure": closure.md
               - "Rust 智能指针": pointer.md
               - "Rust 并发编程": thread.md
-
-      - 关于站点: about.md
 
 copyright: "Copyright &copy; 2021 Jarvib Ding"
 
