@@ -20,8 +20,8 @@ nav:
         - 关于本站: index.md
         - 目 录:
                   - "Rust 介绍": 01_介绍/rust_introduction.md
-                  - "Rust 基础教程": basics.md
-                  - "Rust 开发环境搭建": environment.md
+                  #- "Rust 基础教程": basics.md
+                  - "Rust 开发环境搭建": 02_环境搭建/environment.md
                   - "Rust 您好世界": hello_world.md
                   - "Rust 数据类型": scalar_type.md
                   - "Rust 变量定义": variable.md

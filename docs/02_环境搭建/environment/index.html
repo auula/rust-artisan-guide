@@ -16,7 +16,7 @@
     
     
       
-        <title>Rust 介绍 - Rust中文宝典</title>
+        <title>Rust 开发环境搭建 - Rust中文宝典</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#rust" class="md-skip">
           Skip to content
         </a>
       
@@ -95,7 +95,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Rust 介绍
+              Rust 开发环境搭建
             
           </span>
         </div>
@@ -237,6 +237,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../../01_%E4%BB%8B%E7%BB%8D/rust_introduction/" class="md-nav__link">
+        Rust 介绍
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -244,19 +256,23 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Rust 介绍
+          Rust 开发环境搭建
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Rust 介绍
+        Rust 开发环境搭建
       </a>
       
         
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -266,64 +282,30 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    前 言
+  <a href="#linuxmac" class="md-nav__link">
+    Linux和Mac下配置安装环境
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#rust" class="md-nav__link">
-    Rust介绍
+  <a href="#windows-rust" class="md-nav__link">
+    Windows 上安装 Rust
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    对比其他语言
+  <a href="#rustup" class="md-nav__link">
+    介绍一下rustup
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#rust_1" class="md-nav__link">
-    为什么选择 Rust ?
+  <a href="#hello-cargo" class="md-nav__link">
+    Hello, Cargo!
   </a>
-  
-    <nav class="md-nav" aria-label="为什么选择 Rust ?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    高性能
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    编译时内存安全
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    天生多线程安全运行程序
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rust-web-assembly-wasm" class="md-nav__link">
-    Rust 语言支持 Web Assembly (WASM) 语言
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -331,18 +313,6 @@
   
 </nav>
       
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../02_%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/environment/" class="md-nav__link">
-        Rust 开发环境搭建
-      </a>
     </li>
   
 
@@ -656,6 +626,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -664,64 +636,30 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    前 言
+  <a href="#linuxmac" class="md-nav__link">
+    Linux和Mac下配置安装环境
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#rust" class="md-nav__link">
-    Rust介绍
+  <a href="#windows-rust" class="md-nav__link">
+    Windows 上安装 Rust
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    对比其他语言
+  <a href="#rustup" class="md-nav__link">
+    介绍一下rustup
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#rust_1" class="md-nav__link">
-    为什么选择 Rust ?
+  <a href="#hello-cargo" class="md-nav__link">
+    Hello, Cargo!
   </a>
-  
-    <nav class="md-nav" aria-label="为什么选择 Rust ?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    高性能
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    编译时内存安全
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    天生多线程安全运行程序
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rust-web-assembly-wasm" class="md-nav__link">
-    Rust 语言支持 Web Assembly (WASM) 语言
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -737,52 +675,113 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/higker/learn-rust/edit/master/docs/01_介绍/rust_introduction.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/higker/learn-rust/edit/master/docs/02_环境搭建/environment.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>Rust 介绍</h1>
-                
-                <p><img alt="Rust吉祥物" src="https://tva1.sinaimg.cn/large/008eGmZEgy1gmj018vmi6j30og0gbjsd.jpg" /></p>
-<h2 id="_1">前 言<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+                <h1 id="rust">Rust开发环境搭建<a class="headerlink" href="#rust" title="Permanent link">&para;</a></h1>
+<p><code>Rust</code> 语言的环境配置还是相对简单的，因为官方提供了 <code>rustup</code> 这个一步配置工具。<code>rustup</code> 是 <code>Rust</code> 官方推出的基于 <code>终端/控制台/shell</code> 的工具，可用于管理 <code>Rust</code> 版本和相关工具。</p>
+<h2 id="linuxmac">Linux和Mac下配置安装环境<a class="headerlink" href="#linuxmac" title="Permanent link">&para;</a></h2>
+<p><code>Linux</code>和<code>Mac</code>上配置环境比较简单，你只需要在你的终端里面执行下面命令即可安装:</p>
+<p><div class="highlight"><pre><span></span><code>curl --proto <span class="s1">&#39;=https&#39;</span> --tlsv1.2 -sSf https://sh.rustup.rs <span class="p">|</span> sh
+</code></pre></div>
+查看是否安装成功输入:<code>rustc --version</code>即可！</p>
+<p><img alt="相关提示" src="../../images/Xnip2021-01-30_19-00-11.jpg" /></p>
+<h2 id="windows-rust">Windows 上安装 Rust<a class="headerlink" href="#windows-rust" title="Permanent link">&para;</a></h2>
+<p><code>Windows</code> 上安装任何语言的开发环境都有一点复杂，<code>Rust</code> 也无法避免这一点，<code>Windows</code> 上运行 <code>Rust</code> 编译器需要 <code>C++</code> 开发环境,推荐的做法是安装 <code>Visual Studio 2015</code> 或更高的版本，然后你打<a href="https://www.rust-lang.org/">https://www.rust-lang.org/</a>下载对应文件即可，双击下载好的 <code>rustup-init.exe</code> 文件，选择第<code>1</code>项，然后你就一路下一步，一般情况下，只要静静地等待安装完成即可。</p>
+<p><code>Rust</code> 被安装到目录 <code>C:\Users\{PC}\.cargo\bin</code> 里打开你自己的 <code>C:\Users\{PC}\.cargo\bin</code> 目录，可以看到下面的文件列表。</p>
+<p><div class="highlight"><pre><span></span><code>cargo-fmt.exe
+cargo.exe
+rls.exe
+rust-gdb.exe
+rust-lldb.exe
+rustc.exe // 这是rust编译器
+rustdoc.exe
+rustfmt.exe
+rustup.exe
+</code></pre></div>
+你也可以把这个目录添加到你系统环境变量里，如果在安装出现了问题你可以加<code>关于本站</code>上的讨论组，进来讨论你遇到的问题。</p>
+<h2 id="rustup">介绍一下rustup<a class="headerlink" href="#rustup" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>由于个人原因决定再学习一门语言，那这个语言就是<code>rust</code>的了，另外我还把我学习笔记通过<code>github</code>开源的方式进行整理开源，那今天我们就从<code>rust</code>环境搭建到第一个程序开始。</p>
+<p><code>rustup</code> 是rust官方的版本管理工具，应当作为安装 Rust 的首选。因为 Rust 的更新速度很快，支持的版本很多，有时新版本是不会完美兼容旧版本的，同时还支持多平台交叉编译，所以就有了 <code>rustup</code> 这个 <code>Rust</code> 工具链的管理工具。</p>
 </blockquote>
-<h2 id="rust">Rust介绍<a class="headerlink" href="#rust" title="Permanent link">&para;</a></h2>
+<p><strong>特 性</strong> </p>
+<ol>
+<li>管理安装多个官方版本的 Rust 二进制程序。</li>
+<li>配置基于目录的 Rust 工具链。</li>
+<li>安装和更新来自 Rust 的发布通道: nightly, beta 和 stable。</li>
+<li>接收来自发布通道更新的通知。</li>
+<li>从官方安装历史版本的 nightly 工具链。</li>
+<li>通过指定 stable 版本来安装。</li>
+<li>安装额外的 std 用于交叉编译。</li>
+<li>安装自定义的工具链。</li>
+<li>独立每个安装的 Cargo metadata。</li>
+<li>校验下载的 hash 值。</li>
+<li>校验签名 (如果 GPG 存在)。</li>
+<li>断点续传。</li>
+<li>只依赖 bash, curl 和常见 unix 工具。</li>
+<li>支持 Linux, OS X, Windows(via MSYS2)。</li>
+</ol>
+<p>使用<code>rustup</code>安装的时候，他会帮你安装一下工具:</p>
+<ul>
+<li><code>rustc</code> 编译器</li>
+<li><code>rust-std</code> 标准库</li>
+<li><code>cargo</code> 包管理工具</li>
+<li><code>rust-doc</code> 说明文档</li>
+</ul>
+<h2 id="hello-cargo">Hello, Cargo!<a class="headerlink" href="#hello-cargo" title="Permanent link">&para;</a></h2>
+<p><code>Cargo</code> 是 <code>Rust</code> 的构建系统和包管理器。大多数 <code>Rustacean</code> 们使用 Cargo 来管理他们的 Rust 项目，因为它可以为你处理很多任务，比如构建代码、下载依赖库并编译这些库。</p>
 <ul>
 <li>
-<p><code>Rust</code> 是一门系统级别的编程语言。</p>
+<p>检测是否安装输入命令<code>cargo --version</code></p>
 </li>
 <li>
-<p><code>Rust</code> 由 <code>Graydon Hoare</code> 开发并在被 <code>Mozilla</code> 实验室收购后发扬光大。</p>
+<p>创建一个基于<code>cargo</code>的项目，在你需要工作的目录输入下面命令</p>
 </li>
 </ul>
-<p><a href="https://www.rust-lang.org/" title="Rust">Rust</a> 是一门系统级编程语言，被设计为保证内存和线程安全，防止段错误产生。作为系统级编程语言，它的基本理念是“零开销抽象”。理论上来说，它的速度与 C/C++ 同级。Rust 可以被归为通用的、多范式、编译型的编程语言，类似 C/C++。与这两门编程语言不同的是，Rust 是线程安全的！Rust 编程语言的目标是，创建一个安全和并发的软件系统。它强调安全性、并发和内存控制。尽管 Rust 借用了 C/C++ 的语法，却杜绝了空指针和悬挂指针，而这二者是 C/C++ 中系统崩溃、内存泄露和不安全代码的根源。</p>
-<p>那我为什么要学习<code>rust</code>，这个问题我觉得官方网站就有答案😜。</p>
-<h2 id="_2">对比其他语言<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>这里我们比较的是相关语言在处理一些函数的速度，数据来源<code>debian</code>的<a href="https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/rust.html" title="benchmarksgame">benchmarksgame</a>，如下图:</p>
-<p><img alt="rust对比c" src="https://tva1.sinaimg.cn/large/008eGmZEgy1gmiz2z37j7j30ti0sen0l.jpg" /></p>
-<h2 id="rust_1">为什么选择 Rust ?<a class="headerlink" href="#rust_1" title="Permanent link">&para;</a></h2>
-<p>正如 <code>Rust</code> 语言自己说的那样，<code>Rust</code> 语言有三大愿景：</p>
-<ul>
-<li>高安全</li>
-<li>高性能</li>
-<li>高并发</li>
-</ul>
-<p><code>Rust</code> 语言旨在以简单的方式开发高度可靠和快速的软件。</p>
-<p><code>Rust</code> 语言支持用现代语言特性来写一些系统级别乃至机器级别的程序。</p>
-<h3 id="_3">高性能<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>高性能是所有语言的最高追求，<code>Rust</code> 也不例外。</p>
-<p>为了追求极致的性能，<code>Rust</code> 抛弃了 <code>C/C++</code> 之外的语言都有的 垃圾回收器（ <code>Garbage Collector</code> ）。</p>
-<p>也就是消除了垃圾回收机制带来的性能损耗。</p>
-<h3 id="_4">编译时内存安全<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p><code>Rust</code> 虽然也有指针的概念，但这个概念被大大的弱化，因此它没有 <code>C/C++</code> 那种悬空指针，缓冲区溢出和内存泄漏等等问题。</p>
-<h3 id="_5">天生多线程安全运行程序<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p><code>Rust</code> 是为多线程高并发而设计的系统级别语言，<code>Rust</code> 的 拥有者(<code>ownership</code>) 概念和 内存安全 规则使得它天生支持高并发，而且是支持没有数据竞争的高并发。</p>
-<h3 id="rust-web-assembly-wasm"><code>Rust</code> 语言支持 <code>Web Assembly (WASM)</code> 语言<a class="headerlink" href="#rust-web-assembly-wasm" title="Permanent link">&para;</a></h3>
-<p><code>Rust</code> 的目标是成为高并发且高安全的系统级语言，但这并不代表它就不能开发 <code>Web</code> 应用，<code>Rust</code> 支持通过把代码编译成 <code>Web Assembly (WASM)</code> 语言从而能够在浏览器端以实现快速，可靠的运行。</p>
-<p><code>Web Assembly (WASM)</code> 语言是被设计用来在浏览器端/嵌入式设别上运行的，用于执行 <code>CPU</code> 计算密集型的语言，也就是说 <code>Web Assembly (WASM)</code> 语言 的目标是和 <code>Javascript</code> 一样能够在浏览器里运行，但因为是编译型，所以更高效。</p>
+<p><div class="highlight"><pre><span></span><code>$ cargo new hello_cargo
+$ <span class="nb">cd</span> hello_cargo
+</code></pre></div>
+<img alt="步骤截图" src="https://tva1.sinaimg.cn/large/008eGmZEgy1gmm424ai02j30vl0ozth6.jpg" /></p>
+<ol>
+<li>先不急着coding，先看看<code>Cargo.toml</code>文件里面是啥</li>
+</ol>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">[package]</span>
+<span class="c1"># 项目名字</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s">&quot;hello_cargo&quot;</span>
+<span class="c1"># 项目版本</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s">&quot;0.1.0&quot;</span>
+<span class="c1"># 开发者信息</span>
+<span class="n">authors</span> <span class="o">=</span> <span class="k">[&quot;Dings &lt;deen.job@qq.com&gt;&quot;]</span>
+<span class="c1"># edition 字段表明代码应该使用哪个版本编译。如果该字段不存在，其默认为 2015 以提供后向兼容性</span>
+<span class="n">edition</span> <span class="o">=</span> <span class="s">&quot;2018&quot;</span>
+
+<span class="c1"># See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html</span>
+
+<span class="c1"># 项目依赖的相关配置</span>
+<span class="k">[dependencies]</span>
+</code></pre></div>
+</td></tr></table>
+<strong>相关命令</strong>
+- <code>cargo build</code>  构建了项目
+- <code>cargo run</code>    编译和运行
+- <code>cargo check</code>  快速检查代码确保其可以编译
+- <code>cargo build --release</code> 来优化编译项目</p>
+<p><img alt="相关截图" src="https://tva1.sinaimg.cn/large/008eGmZEgy1gmm4okc7g4j30vi0ew76r.jpg" /></p>
                 
               
               
@@ -801,7 +800,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../.." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../01_%E4%BB%8B%E7%BB%8D/rust_introduction/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -810,25 +809,11 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                关于本站
+                Rust 介绍
               </div>
             </div>
           </a>
         
-        
-          <a href="../../02_%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/environment/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Rust 开发环境搭建
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
         
       </nav>
     </div>
