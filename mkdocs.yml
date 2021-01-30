@@ -15,7 +15,7 @@ theme:
         font:
                 text: "Roboto"
                 code: "Roboto Mono"
-
+        custom_dir: overrides
 nav:
         - 关于本站: index.md
         - 目 录:
@@ -47,7 +47,15 @@ nav:
                   - "Rust 智能指针": pointer.md
                   - "Rust 并发编程": thread.md
 
+extra:
+        generator: false
+
 copyright: "Copyright &copy; 2021 Jarvib Ding"
+
+social:
+        - icon: fontawesome/brands/twitter
+          link: https://twitter.com/JarvibDing
+          name: squidfunk on Twitter
 
 markdown_extensions:
         - admonition # 提示块
@@ -77,3 +85,6 @@ markdown_extensions:
 
 extra_css:
         - "https://res.wx.qq.com/open/libs/weui/2.3.0/weui.min.css"
+
+extra_javascript:
+        - "//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
