@@ -9,14 +9,32 @@ theme:
         name: material
         logo: "/images/rust-logo-white.png"
         favicon: "images/rust-logo.png"
-        palette:
-                primary: "black"
-                accent: "indigo"
+        # palette:
+        #         primary: "black"
+        #         accent: "indigo"
+        #         scheme: slate
         font:
                 text: "Roboto"
                 code: "Roboto Mono"
         custom_dir: overrides
         language: zh
+        palette:
+                # data-md-color-scheme
+                # Toggle light mode
+                - scheme: light
+                  primary: black
+                  accent: indigo
+                  toggle:
+                          icon: material/toggle-switch
+                          name: Switch to light mode
+                #Toggle dark mode
+                # - scheme: slate
+                #   primary: blue
+                #   accent: blue
+                #   toggle:
+                #           icon: material/toggle-switch-off-outline
+                #           name: Switch to dark mode
+
 nav:
         - 关于本站: index.md
         - 目 录:
@@ -100,8 +118,10 @@ markdown_extensions:
                           custom_icons:
                                   - overrides/icons
 
-extra_css:
-        - "https://res.wx.qq.com/open/libs/weui/2.3.0/weui.min.css"
+# extra_css:
+#         - "assets/stylesheets/dark_theme.css"
+#         - "assets/stylesheets/codehilite.css"
 
 extra_javascript:
         - "//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+        # - "assets/js/theme.js"
