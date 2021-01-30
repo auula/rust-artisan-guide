@@ -96,6 +96,7 @@ edition = "2018"
 [dependencies]
 ```
 **相关命令**
+
 - `cargo build`  构建了项目
 - `cargo run`    编译和运行
 - `cargo check`  快速检查代码确保其可以编译
