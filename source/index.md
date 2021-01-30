@@ -14,13 +14,13 @@
  
 - 阅读地址：[https://getrust.tech](https://getrust.tech)
 - 本项目地址：[https://github.com/higker/learn-rust](https://github.com/higker/learn-rust)
-
+- 本项目源代码：[https://github.com/higker/learning-rust-zh](https://github.com/higker/learning-rust-zh)
 ## 维护者
 
 - Jarvib Ding 
 - 期待跟多人加入
 - 联系📮: deen.job@qq.com
-
+- 项目持续更新中....
 ## 讨论组
 
 ![微信群](images/rust-wx.jpeg)
