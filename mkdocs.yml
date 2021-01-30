@@ -75,5 +75,5 @@ markdown_extensions:
         - pymdownx.tasklist: # 复选框checklist
                   custom_checkbox: true
 
-extra_javascript:
+extra_css:
         - "https://res.wx.qq.com/open/libs/weui/2.3.0/weui.min.css"
