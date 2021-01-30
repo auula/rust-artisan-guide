@@ -13,11 +13,13 @@
 ## 阅读和参入
  
 - 阅读地址：[https://getrust.tech](https://getrust.tech)
-- 本项目地址：[https://github.com/higker/getrust](https://github.com/higker/getrust)
+- 本项目地址：[https://github.com/higker/learn-rust](https://github.com/higker/learn-rust)
 
 ## 维护者
 
-- Jarvib Ding (项目发起人)
+- Jarvib Ding 
+- 期待跟多人加入
+- 联系📮: deen.job@qq.com
 
 ## 讨论组
 
