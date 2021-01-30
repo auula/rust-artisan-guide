@@ -13,4 +13,4 @@
 ## 阅读和参入
  
 - 阅读地址：[https://getrust.tech](https://getrust.tech)
-- 本项目地址：[https://github.com/higker/getrust](https://github.com/higker/getrust)
+- 本项目地址：[https://github.com/higker/getrust](https://github.com/higker/learn-rust)
