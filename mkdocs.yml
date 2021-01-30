@@ -16,6 +16,7 @@ theme:
                 text: "Roboto"
                 code: "Roboto Mono"
         custom_dir: overrides
+        language: zh
 nav:
         - 关于本站: index.md
         - 目 录:
@@ -48,7 +49,15 @@ nav:
                   - "Rust 并发编程": thread.md
 
 extra:
-        generator: false
+        alternate:
+                # Switch to English
+                - name: 简体中文
+                  link: https://getrust.tech/
+                  lang: zh
+                # Switch to Japanese
+                - name: 日本語
+                  link: https://getrust.tech/ja/
+                  lang: ja
 
 copyright: "Copyright &copy; 2021 Jarvib Ding"
 
