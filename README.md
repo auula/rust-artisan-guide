@@ -1,4 +1,4 @@
-# getrust
+# learn-rust
 
 ![Rust](/docs/images/rust-logo-banner.png)
 
