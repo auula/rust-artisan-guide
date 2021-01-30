@@ -49,6 +49,15 @@ nav:
                   - "Rust 并发编程": thread.md
 
 extra:
+        social:
+                - icon: fontawesome/brands/twitter
+                  link: https://twitter.com/JarvibDing
+                - icon: book
+                  link: https://rustmagazine.github.io/rust_magazine_2021
+                - icon: youtube
+                  link: https://github.com/higker/learn-rust
+                - icon: github
+                  link: https://github.com/higker
         alternate:
                 # Switch to English
                 - name: 简体中文
@@ -60,11 +69,6 @@ extra:
                   lang: ja
 
 copyright: "Copyright &copy; 2021 Jarvib Ding"
-
-social:
-        - icon: fontawesome/brands/twitter
-          link: https://twitter.com/JarvibDing
-          name: squidfunk on Twitter
 
 markdown_extensions:
         - admonition # 提示块
@@ -91,6 +95,10 @@ markdown_extensions:
         #  - pymdownx.magiclink  # 自动识别超链接
         - pymdownx.tasklist: # 复选框checklist
                   custom_checkbox: true
+        - pymdownx.emoji:
+                  options:
+                          custom_icons:
+                                  - overrides/icons
 
 extra_css:
         - "https://res.wx.qq.com/open/libs/weui/2.3.0/weui.min.css"
