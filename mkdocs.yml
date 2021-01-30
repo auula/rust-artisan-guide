@@ -74,3 +74,6 @@ markdown_extensions:
         #  - pymdownx.magiclink  # 自动识别超链接
         - pymdownx.tasklist: # 复选框checklist
                   custom_checkbox: true
+
+extra_javascript:
+        - "https://res.wx.qq.com/open/libs/weui/2.3.0/weui.min.css"

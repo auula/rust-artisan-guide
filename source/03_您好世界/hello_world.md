@@ -47,16 +47,16 @@ edition = "2018"
 ![相关截图](https://tva1.sinaimg.cn/large/008eGmZEgy1gmm4okc7g4j30vi0ew76r.jpg)
 
 
-3. 在你的`main.rs`写入代码
+在你的`main.rs`写入代码
 
-```rust linenums="1"
+```rust linenums="1" hl_lines="2"
 // 我感觉你不是写，我估计你是复制粘贴😜
 fn main() {
     println!("Hello, world!");
 } 
 ```
 
-4. 使用`cargo run`跑起来你的代码
+使用`cargo run`跑起来你的代码
 
 ```shell
 Hello, world!
