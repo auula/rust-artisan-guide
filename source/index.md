@@ -27,7 +27,7 @@
 
 
 
-<!-- ``` rust linenums="1" 
+<!-- ``` rust linenums="1" hl_lines="2"
 fn main(){
     println!("Hello World!");
 }

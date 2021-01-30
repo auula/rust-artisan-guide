@@ -49,7 +49,7 @@ edition = "2018"
 
 在你的`main.rs`写入代码
 
-```rust linenums="1" hl_lines="2"
+```rust linenums="1" 
 // 我感觉你不是写，我估计你是复制粘贴😜
 fn main() {
     println!("Hello, world!");
