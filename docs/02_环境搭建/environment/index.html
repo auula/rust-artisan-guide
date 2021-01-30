@@ -302,13 +302,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#hello-cargo" class="md-nav__link">
-    Hello, Cargo!
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -322,7 +315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../hello_world.md" class="md-nav__link">
+      <a href="../../03_%E6%82%A8%E5%A5%BD%E4%B8%96%E7%95%8C/hello_world/" class="md-nav__link">
         Rust 您好世界
       </a>
     </li>
@@ -656,13 +649,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#hello-cargo" class="md-nav__link">
-    Hello, Cargo!
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -730,60 +716,6 @@ rustup.exe
 <li><code>cargo</code> 包管理工具</li>
 <li><code>rust-doc</code> 说明文档</li>
 </ul>
-<h2 id="hello-cargo">Hello, Cargo!<a class="headerlink" href="#hello-cargo" title="Permanent link">&para;</a></h2>
-<p><code>Cargo</code> 是 <code>Rust</code> 的构建系统和包管理器。大多数 <code>Rustacean</code> 们使用 <code>Cargo</code> 来管理他们的 <code>Rust</code> 项目，因为它可以为你处理很多任务，比如构建代码、下载依赖库并编译这些库。</p>
-<ul>
-<li>
-<p>检测是否安装输入命令<code>cargo --version</code></p>
-</li>
-<li>
-<p>创建一个基于<code>cargo</code>的项目，在你需要工作的目录输入下面命令</p>
-</li>
-</ul>
-<p><div class="highlight"><pre><span></span><code>$ cargo new hello_cargo
-$ <span class="nb">cd</span> hello_cargo
-</code></pre></div>
-<img alt="步骤截图" src="https://tva1.sinaimg.cn/large/008eGmZEgy1gmm424ai02j30vl0ozth6.jpg" /></p>
-<ol>
-<li>先不急着coding，先看看<code>Cargo.toml</code>文件里面是啥</li>
-</ol>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">[package]</span>
-<span class="c1"># 项目名字</span>
-<span class="n">name</span> <span class="o">=</span> <span class="s">&quot;hello_cargo&quot;</span>
-<span class="c1"># 项目版本</span>
-<span class="n">version</span> <span class="o">=</span> <span class="s">&quot;0.1.0&quot;</span>
-<span class="c1"># 开发者信息</span>
-<span class="n">authors</span> <span class="o">=</span> <span class="k">[&quot;Dings &lt;deen.job@qq.com&gt;&quot;]</span>
-<span class="c1"># edition 字段表明代码应该使用哪个版本编译。如果该字段不存在，其默认为 2015 以提供后向兼容性</span>
-<span class="n">edition</span> <span class="o">=</span> <span class="s">&quot;2018&quot;</span>
-
-<span class="c1"># See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html</span>
-
-<span class="c1"># 项目依赖的相关配置</span>
-<span class="k">[dependencies]</span>
-</code></pre></div>
-</td></tr></table>
-<strong>相关命令</strong></p>
-<ul>
-<li><code>cargo build</code>  构建了项目</li>
-<li><code>cargo run</code>    编译和运行</li>
-<li><code>cargo check</code>  快速检查代码确保其可以编译</li>
-<li><code>cargo build --release</code> 来优化编译项目</li>
-</ul>
-<p><img alt="相关截图" src="https://tva1.sinaimg.cn/large/008eGmZEgy1gmm4okc7g4j30vi0ew76r.jpg" /></p>
                 
               
               
@@ -816,6 +748,20 @@ $ <span class="nb">cd</span> hello_cargo
             </div>
           </a>
         
+        
+          <a href="../../03_%E6%82%A8%E5%A5%BD%E4%B8%96%E7%95%8C/hello_world/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Rust 您好世界
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
         
       </nav>
     </div>
