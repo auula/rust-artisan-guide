@@ -42,7 +42,7 @@ nav:
                   #- "Rust 基础教程": basics.md
                   - "Rust 开发环境搭建": 02_环境搭建/environment.md
                   - "Rust 您好世界": 03_您好世界/hello_world.md
-                  - "Rust 数据类型": scalar_type.md
+                  - "Rust 数据类型": 04_数据类型/scalar_type.md
                   - "Rust 变量定义": variable.md
                   - "Rust 常量定义": const.md
                   - "Rust 字符串": string.md
