@@ -1,8 +1,7 @@
 /*深色*/
-.md-header {
-    background-color: #222;
+:root {
+    --md-primary-fg-color:        #0c0c0c;
 }
-
 .md-nav__source {
-    background-color: #222;
+    background-color: rgb(0, 0, 0);
 }

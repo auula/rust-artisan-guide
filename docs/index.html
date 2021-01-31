@@ -75,16 +75,32 @@
     
       
 
+
+
+<!-- Application header -->
 <header class="md-header" data-md-component="header">
+
+  <!-- Top-level navigation -->
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="." title="Rust中文宝典" class="md-header-nav__button md-logo" aria-label="Rust中文宝典">
+
+    <!-- Link to home -->
+    <a
+      href="."
+      title="Rust中文宝典"
+      class="md-header-nav__button md-logo"
+      aria-label="Rust中文宝典"
+    >
       
   <img src="/images/rust-logo-white.png" alt="logo">
 
     </a>
+
+    <!-- Button to open drawer -->
     <label class="md-header-nav__button md-icon" for="__drawer">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
+
+    <!-- Header title -->
     <div class="md-header-nav__title" data-md-component="header-title">
       <div class="md-header-nav__ellipsis">
         <div class="md-header-nav__topic">
@@ -101,10 +117,14 @@
         </div>
       </div>
     </div>
+
+    <!-- Button to open search modal -->
     
       <label class="md-header-nav__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
+
+      <!-- Search interface -->
       
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -132,7 +152,14 @@
   </div>
 </div>
     
+
+    <!-- Repository information -->
     
+      <a href="javascript:changeTheme();" title="前往 GitHub 仓库" >
+        <div class="md-source__icon md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book-half" viewBox="0 0 16 16"><path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"></path></svg>
+        </div>
+      </a>
       <div class="md-header-nav__source">
         
 <a href="https://github.com/higker/learn-rust/" title="前往 GitHub 仓库" class="md-source">
@@ -145,7 +172,9 @@
   </div>
 </a>
       </div>
+      
     
+
   </nav>
 </header>
     

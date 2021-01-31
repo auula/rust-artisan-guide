@@ -45,6 +45,22 @@ var listeners = {
 window.matchMedia('(prefers-color-scheme: dark)').addListener(listeners.dark)
 window.matchMedia('(prefers-color-scheme: light)').addListener(listeners.light)
 
+function changeTheme() {
+
+    if (document.getElementsByTagName("body")[0].getAttribute("data-md-color-primary") == "light") {
+        document.getElementsByTagName("body")[0].removeAttribute('data-md-color-scheme');
+        document.getElementsByTagName("body")[0].removeAttribute('data-md-color-primary');
+        document.getElementsByTagName("body")[0].setAttribute("data-md-color-scheme", "slate");
+        document.getElementsByTagName("body")[0].setAttribute("data-md-color-primary", "dark");
+    } else {
+        document.getElementsByTagName("body")[0].removeAttribute('data-md-color-scheme');
+        document.getElementsByTagName("body")[0].removeAttribute('data-md-color-primary');
+        document.getElementsByTagName("body")[0].setAttribute("data-md-color-primary", "light");
+        document.getElementsByTagName("body")[0].setAttribute("data-md-color-scheme", "light");
+    }
+
+}
+
 console.log(`
 ░░░░░░░░░░░░░░░░░░░░░░░░▄░░
 ░░░░░░░░░▐█░░░░░░░░░░░▄▀▒▌░
