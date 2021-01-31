@@ -21,8 +21,8 @@ var listeners = {
         if (mediaQueryList.matches) {
             document.getElementsByTagName("body")[0].removeAttribute('data-md-color-scheme');
             document.getElementsByTagName("body")[0].removeAttribute('data-md-color-primary');
+            document.getElementsByTagName("body")[0].setAttribute("data-md-color-scheme", "slate");
             document.getElementsByTagName("body")[0].setAttribute("data-md-color-primary", "dark");
-            document.getElementsByTagName("body")[0].setAttribute("data-md-color-scheme", "dark");
         }
     },
     light: function (mediaQueryList) {

@@ -809,7 +809,16 @@
 <p><code>arch</code> 是由 <code>CPU</code> 构架决定的大小的整型类型，大小为 <code>arch</code> 的整数在 <code>x86</code> 机器上为 <code>32</code> 位，在 <code>x64</code> 机器上为 <code>64</code> 位。
 每种整型并不都是能存储任意数字的，每种整型只能装下固定大小的数字，如果给予的数字超出了整型的范围则会发生溢出，相信你如果之前写过<code>Java</code>也有体会。</p>
 <p>代码例子:</p>
-<div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">(){</span><span class="w"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">(){</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 整型</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">00_32</span><span class="p">;</span><span class="w"> </span><span class="c1">// default scalar type i32</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">age</span>:<span class="kt">u8</span> <span class="o">=</span><span class="w"> </span><span class="mh">0x16</span><span class="p">;</span><span class="w"></span>
@@ -820,12 +829,19 @@
 <span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;iarch = {} uarch = {}&quot;</span><span class="p">,</span><span class="n">iarch</span><span class="p">,</span><span class="n">uarch</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
+</td></tr></table>
 <blockquote>
 <p>整数支持整数中间存在一个下划线和十六进制赋值，如果给予的数字超出了整型的范围则会发生溢出。</p>
 </blockquote>
 <h2 id="_3">浮点型<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>区分整型和浮点型的唯一指标就是 <code>有没有小数点</code>且不能互相转换，定义浮点型变量的时候要注意每种浮点型的最大值和最小值，如果超出可能会赋值失败，也有可能结果不是预期的结果。</p>
-<p><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">(){</span><span class="w"></span>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">(){</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 浮点型</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">64.00</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;f is {:?}&quot;</span><span class="p">,</span><span class="n">f</span><span class="p">)</span><span class="w"></span>
@@ -833,12 +849,23 @@
 <span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;f is {:?}&quot;</span><span class="p">,</span><span class="n">f</span><span class="p">)</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-这段代码里面会发生编译错误，<code>let f:i64 = f;</code>
-<div class="highlight"><pre><span></span><code><span class="n">error</span><span class="p">[</span><span class="n">E0308</span><span class="p">]</span>: <span class="nc">mismatched</span><span class="w"> </span><span class="n">types</span><span class="w"></span>
+</td></tr></table>
+这段代码里面会发生编译错误，<code>let f:i64 = f;</code></p>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">error</span><span class="p">[</span><span class="n">E0308</span><span class="p">]</span>: <span class="nc">mismatched</span><span class="w"> </span><span class="n">types</span><span class="w"></span>
 <span class="w">  </span><span class="o">-</span>-&gt; <span class="nc">scalar_type</span><span class="p">.</span><span class="n">rs</span>:<span class="mi">21</span>:<span class="mi">17</span><span class="w"></span>
 <span class="w">   </span><span class="o">|</span><span class="w"></span>
-<span class="mi">21</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="kd">let</span><span class="w"> </span><span class="n">f</span>:<span class="kt">i64</span> <span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="o">|</span><span class="w">           </span><span class="o">---</span><span class="w">   </span><span class="o">^</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="err">`</span><span class="kt">i64</span><span class="err">`</span><span class="p">,</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="n">floating</span><span class="o">-</span><span class="n">point</span><span class="w"> </span><span class="n">number</span><span class="w"></span>
+<span class="hll"><span class="mi">21</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="kd">let</span><span class="w"> </span><span class="n">f</span>:<span class="kt">i64</span> <span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">;</span><span class="w"></span>
+</span><span class="w">   </span><span class="o">|</span><span class="w">           </span><span class="o">---</span><span class="w">   </span><span class="o">^</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="err">`</span><span class="kt">i64</span><span class="err">`</span><span class="p">,</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="n">floating</span><span class="o">-</span><span class="n">point</span><span class="w"> </span><span class="n">number</span><span class="w"></span>
 <span class="w">   </span><span class="o">|</span><span class="w">           </span><span class="o">|</span><span class="w"></span>
 <span class="w">   </span><span class="o">|</span><span class="w">           </span><span class="n">expected</span><span class="w"> </span><span class="n">due</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">this</span><span class="w"></span>
 
@@ -846,12 +873,23 @@
 
 <span class="n">For</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">error</span><span class="p">,</span><span class="w"> </span><span class="kr">try</span><span class="w"> </span><span class="err">`</span><span class="n">rustc</span><span class="w"> </span><span class="o">--</span><span class="n">explain</span><span class="w"> </span><span class="n">E0308</span><span class="err">`</span><span class="p">.</span><span class="w"></span>
 </code></pre></div>
+</td></tr></table>
 因为新的<code>f</code>类型是<code>i64</code>，不能自动类型转换！！Rust 中的数字类型与 C/C++ 中不同的是 Rust 语言不允许类型自动转换。</p>
 <h2 id="_4">布尔型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>布尔类型：只有两个可能的取值 <code>true</code> 或 <code>false</code> 。</p>
 <h2 id="_5">字符类型<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p><code>Rust</code> 使用 <code>char</code> 作为字符数据类型，这点可谓是继承了 <code>C/C++</code>。但与 <code>C/C++</code> 不同的是：<code>Rust</code> 使用 <code>UTF-8</code> 作为底层的编码，<code>Rust</code> 选用 <code>UTF-8</code> 作为底层编码可谓是顺应时代的潮流。因为编程早就不极限于拉丁语系的国家，像中国、印度、日本等国家都有大量的程序员，并且互联网是开放的，而不只限于存在于中国局部的，所以<code>Rust</code>使用的<code>UTF-8</code>编码。</p>
-<div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">(){</span><span class="w"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">(){</span><span class="w"> </span>
 <span class="w">    </span><span class="c1">// 字符</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">special_character</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;@&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">//default</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">alphabet</span>:<span class="kt">char</span> <span class="o">=</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">;</span><span class="w"></span>
@@ -863,6 +901,7 @@
 <span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;emoji is {}&quot;</span><span class="p">,</span><span class="n">emoji</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="_6">其他补充<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -963,9 +1002,7 @@
         
       
       <a href="https://rustmagazine.github.io/rust_magazine_2021" target="_blank" rel="noopener" title="rustmagazine.github.io" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
-  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
-</svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16"><path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/></svg>
       </a>
     
       
@@ -974,9 +1011,7 @@
         
       
       <a href="https://github.com/higker/learn-rust" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
-  <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.122C.002 7.343.01 6.6.064 5.78l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
-</svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16"><path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.122C.002 7.343.01 6.6.064 5.78l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/></svg>
       </a>
     
       
@@ -985,9 +1020,7 @@
         
       
       <a href="https://github.com/higker" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-</svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
       </a>
     
   </div>
@@ -1012,6 +1045,8 @@
       </script>
       
         <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      
+        <script src="../../assets/js/theme.js"></script>
       
     
   </body>

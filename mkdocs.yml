@@ -124,4 +124,4 @@ markdown_extensions:
 
 extra_javascript:
         - "//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
-        # - "assets/js/theme.js"
+        - "assets/js/theme.js"

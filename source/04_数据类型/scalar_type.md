@@ -42,7 +42,7 @@
 
 代码例子:
 
-```rust
+```rust linenums="1"
 fn main(){
     // 整型
     let i = 00_32; // default scalar type i32
@@ -60,7 +60,7 @@ fn main(){
 
 区分整型和浮点型的唯一指标就是 `有没有小数点`且不能互相转换，定义浮点型变量的时候要注意每种浮点型的最大值和最小值，如果超出可能会赋值失败，也有可能结果不是预期的结果。
 
-```rust
+```rust linenums="1"
 fn main(){
     // 浮点型
     let f = 64.00;
@@ -70,7 +70,8 @@ fn main(){
 }
 ```
 这段代码里面会发生编译错误，`let f:i64 = f;`
-```rust
+
+```rust linenums="1" hl_lines="4"
 error[E0308]: mismatched types
   --> scalar_type.rs:21:17
    |
@@ -93,8 +94,8 @@ For more information about this error, try `rustc --explain E0308`.
 
 `Rust` 使用 `char` 作为字符数据类型，这点可谓是继承了 `C/C++`。但与 `C/C++` 不同的是：`Rust` 使用 `UTF-8` 作为底层的编码，`Rust` 选用 `UTF-8` 作为底层编码可谓是顺应时代的潮流。因为编程早就不极限于拉丁语系的国家，像中国、印度、日本等国家都有大量的程序员，并且互联网是开放的，而不只限于存在于中国局部的，所以`Rust`使用的`UTF-8`编码。
 
-``` RUST
-fn main(){
+``` RUST  linenums="1"
+fn main(){ 
     // 字符
     let special_character = '@'; //default
     let alphabet:char = 'A';
