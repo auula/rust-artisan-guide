@@ -10,7 +10,7 @@
 
 - 检测是否安装输入命令`cargo --version`
 
-1. 创建一个基于`cargo`的项目，在你需要工作的目录输入下面命令
+创建一个基于`cargo`的项目，在你需要工作的目录输入下面命令
 
 ``` shell
 $ cargo new hello_cargo
@@ -18,7 +18,7 @@ $ cd hello_cargo
 ```
 ![步骤截图](https://tva1.sinaimg.cn/large/008eGmZEgy1gmm424ai02j30vl0ozth6.jpg)
 
-2. 先不急着coding，先看看`Cargo.toml`文件里面是啥
+先不急着coding，先看看`Cargo.toml`文件里面是啥
 
 ```toml linenums="1"
 [package]
