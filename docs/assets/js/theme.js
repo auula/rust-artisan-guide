@@ -7,11 +7,18 @@ if (window.matchMedia('(prefers-color-scheme)').media === 'not all') {
 /*判断是否处于深色模式*/
 if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
     //Do some thing
+    document.getElementsByTagName("body")[0].removeAttribute('data-md-color-scheme');
+    document.getElementsByTagName("body")[0].removeAttribute('data-md-color-primary');
+    document.getElementsByTagName("body")[0].setAttribute("data-md-color-scheme", "slate");
+    document.getElementsByTagName("body")[0].setAttribute("data-md-color-primary", "dark");
 }
 
 /*判断是否处于浅色模式*/
 if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-    //Do some thing
+    document.getElementsByTagName("body")[0].removeAttribute('data-md-color-scheme');
+    document.getElementsByTagName("body")[0].removeAttribute('data-md-color-primary');
+    document.getElementsByTagName("body")[0].setAttribute("data-md-color-primary", "light");
+    document.getElementsByTagName("body")[0].setAttribute("data-md-color-scheme", "light");
 }
 
 

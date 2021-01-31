@@ -21,12 +21,12 @@ theme:
         palette:
                 # data-md-color-scheme
                 # Toggle light mode
-                - scheme: light
+                - scheme: default
                   primary: black
-                  accent: indigo
-                  toggle:
-                          icon: material/toggle-switch
-                          name: Switch to light mode
+                  accent: black
+                #   toggle:
+                #           icon: material/toggle-switch
+                #           name: Switch to light mode
                 #Toggle dark mode
                 # - scheme: slate
                 #   primary: blue
@@ -118,8 +118,8 @@ markdown_extensions:
                           custom_icons:
                                   - overrides/icons
 
-# extra_css:
-#         - "assets/stylesheets/dark_theme.css"
+extra_css:
+        - "assets/css/theme.css"
 #         - "assets/stylesheets/codehilite.css"
 
 extra_javascript:
