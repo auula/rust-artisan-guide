@@ -21,7 +21,7 @@
 
 在`Rust`中声明一个变量要使用`let`关键字，看下面代码
 
-```rust linemus="1" 
+```rust linenums="1" 
 fn main(){
     // 通过let 声明的变量是不可变的
     let v = "variable";
@@ -32,7 +32,7 @@ fn main(){
 }
 ```
 编译这段代码编译器会报错:
-```bash linemus="1" hl_lines="4" 
+```bash linenums="1" hl_lines="4,10" 
 error[E0384]: cannot assign twice to immutable variable `v`
   --> variable.rs:13:5
    |
@@ -57,7 +57,7 @@ For more information about this error, try `rustc --explain E0384`.
 
 如果想声明一个可被修改的变量这时我们就使用`mut`关键字:
 
-```rust linemus="1"
+```rust linenums="1"
     // 通过mut关键字声明的变量可以被修改
     let mut m = 123;
     //println!("m assigned value is {}",m);
@@ -70,7 +70,7 @@ For more information about this error, try `rustc --explain E0384`.
 
 在`Rust`想声明常量可以使用`const`关键字:
 
-```Rust linemus="1"
+```Rust linenums="1"
     const MY_AGE:u64 = 22;
     println!("my age is {}",MY_AGE) // 22
 ```
@@ -83,7 +83,7 @@ For more information about this error, try `rustc --explain E0384`.
 
 看看代码，按照之前我说的`let`声明的变量是不可变的，下面代码会编译出错吗？？？
 
-```RUST linemus="1"
+```RUST linenums="1"
     let s = 32;
     let s = 32 + s;
     println!("s value is {}",s);
@@ -97,7 +97,7 @@ For more information about this error, try `rustc --explain E0384`.
 对的，`let`关键字重新声明的相同变量的名的变量会砍掉之前的变量
 并且如果需要之前变量的值就会拿到值然后在删除掉，重新分配，可以通过查看地址查看变化。
 
-```rust linemus="1"
+```rust linenums="1"
     // 可以通过查看内存地址就查看
     println!("old s pointer is {:p}",&s);
     let s = s;
