@@ -37,7 +37,6 @@
 简单使用示例:
 
 
-
 ```rust linenums='1'
     // 字符串对象
     let mut phone = String::new();
@@ -56,6 +55,21 @@
 
     println!("{}",hello)
 }
+```
+
+如果需要将字符串面量转成`Sting`对象你就需要使用`to_string()`，字符串面量是没有任何操作方法的，只能存储`字符串的内容`。
+
+```rust linenums='1'
+    let url = "https://getrust.tech";
+    let mut domain = url.to_string();
+    domain = domain.replace("https://", "");
+    println!("domain is {}", domain);
+```
+
+output:
+
+```bash
+domain is getrust.tech
 ```
 
 - 相关API文档:[https://doc.rust-lang.org/std/string/struct.String.html](https://doc.rust-lang.org/std/string/struct.String.html)
