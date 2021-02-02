@@ -365,6 +365,13 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    可变变量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     常量与不可变变量的区别
   </a>
   
@@ -378,14 +385,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     小 结
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     相关资料
   </a>
   
@@ -702,6 +709,13 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    可变变量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     常量与不可变变量的区别
   </a>
   
@@ -715,14 +729,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     小 结
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     相关资料
   </a>
   
@@ -764,7 +778,7 @@
 <p><strong>当然<code>Rust</code>不是这样的，<code>Rust</code>强类型的!<code>Rust</code>强类型的!，<code>Rust</code>强类型的! 说3遍，如果是上面👆图片这样我不会入坑的。。</strong> <a href="https://chromium.googlesource.com/v8/v8.git">感兴趣的可以去看看<code>v8</code>引擎。。</a></p>
 <h2 id="_3">不可变的变量<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>在<code>Rust</code>中声明一个变量要使用<code>let</code>关键字，看下面代码</p>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
@@ -781,36 +795,58 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-编译这段代码编译器会报错:
-<code>``bash linenums="1" hl_lines="4,10" 
-error[E0384]: cannot assign twice to immutable variable</code>v<code>--&gt; variable.rs:13:5
-   |
-10 |     let v = "variable";
-   |         -
-   |         |
-   |         first assignment to</code>v<code>|         help: make this binding mutable:</code>mut v`
+<p>编译这段代码编译器会报错:</p>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>error<span class="o">[</span>E0384<span class="o">]</span>: cannot assign twice to immutable variable <span class="sb">`</span>v<span class="sb">`</span>
+  --&gt; variable.rs:13:5
+   <span class="p">|</span>
+<span class="hll"><span class="m">10</span> <span class="p">|</span>     <span class="nb">let</span> <span class="nv">v</span> <span class="o">=</span> <span class="s2">&quot;variable&quot;</span><span class="p">;</span>
+</span>   <span class="p">|</span>         -
+   <span class="p">|</span>         <span class="p">|</span>
+   <span class="p">|</span>         first assignment to <span class="sb">`</span>v<span class="sb">`</span>
+   <span class="p">|</span>         help: make this binding mutable: <span class="sb">`</span>mut v<span class="sb">`</span>
 ...
-13 |     v = "var 2" ;
-   |     <sup>^</sup><sup>^</sup><sup>^</sup>^^ cannot assign twice to immutable variable</p>
-<p>error: aborting due to previous error</p>
-<p>For more information about this error, try <code>rustc --explain E0384</code>.
-<div class="highlight"><pre><span></span><code>**关键消息:** 不能两次分配不变的变量! ❎错误在于`v`这个变量是不可变的变量，不能进行第二次进行赋值修改。由于个人之前写过`Java`和`Go`感觉有点类似于`Java`语言中的`final`关键字修饰的变量，看这句话的之前你得先了解`java`相关的编译机制。如果我们编写的程序的一部分在假设值永远不会改变的情况下运行，而我们代码的另一部分在改变该值，那么代码的第一部分可能就不会按照设计的意图去运转，由于这种原因造成的错误很难在事后找到。这是 `Rust` 语言设计这种机制的原因。
+<span class="m">13</span> <span class="p">|</span>     <span class="nv">v</span> <span class="o">=</span> <span class="s2">&quot;var 2&quot;</span> <span class="p">;</span>
+   <span class="p">|</span>     ^^^^^^^^^^^ cannot assign twice to immutable variable
 
-&gt; 这就牵扯到了 `Rust` 语言为了高并发安全而做的设计：在语言层面尽量少的让变量的值可以改变。所以 `v` 的值不可变。
+error: aborting due to previous error
 
-## 可变变量
-
-如果想声明一个可被修改的变量这时我们就使用`mut`关键字:
-
-```rust linenums=&quot;1&quot;
-    // 通过mut关键字声明的变量可以被修改
-    let mut m = 123;
-    //println!(&quot;m assigned value is {}&quot;,m);
-    m = 666 + m;
-    println!(&quot;这是一个可变变量: {}&quot;,m);
-    // OUTPUT： 789
-</code></pre></div></p>
-<h2 id="_4">常量与不可变变量的区别<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+For more information about this error, try <span class="sb">`</span>rustc --explain E0384<span class="sb">`</span>.
+</code></pre></div>
+</td></tr></table>
+<strong>关键消息:</strong> 不能两次分配不变的变量! ❎错误在于<code>v</code>这个变量是不可变的变量，不能进行第二次进行赋值修改。由于个人之前写过<code>Java</code>和<code>Go</code>感觉有点类似于<code>Java</code>语言中的<code>final</code>关键字修饰的变量，看这句话的之前你得先了解<code>java</code>相关的编译机制。如果我们编写的程序的一部分在假设值永远不会改变的情况下运行，而我们代码的另一部分在改变该值，那么代码的第一部分可能就不会按照设计的意图去运转，由于这种原因造成的错误很难在事后找到。这是 <code>Rust</code> 语言设计这种机制的原因。</p>
+<blockquote>
+<p>这就牵扯到了 <code>Rust</code> 语言为了高并发安全而做的设计：在语言层面尽量少的让变量的值可以改变。所以 <code>v</code> 的值不可变。</p>
+</blockquote>
+<h2 id="_4">可变变量<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>如果想声明一个可被修改的变量这时我们就使用<code>mut</code>关键字:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="w">    </span><span class="c1">// 通过mut关键字声明的变量可以被修改</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//println!(&quot;m assigned value is {}&quot;,m);</span>
+<span class="w">    </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">666</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;这是一个可变变量: {}&quot;</span><span class="p">,</span><span class="n">m</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// OUTPUT： 789</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="_5">常量与不可变变量的区别<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>在<code>Rust</code>想声明常量可以使用<code>const</code>关键字:</p>
 <p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">MY_AGE</span>:<span class="kt">u64</span> <span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="p">;</span><span class="w"></span>
@@ -849,9 +885,9 @@ error[E0384]: cannot assign twice to immutable variable</code>v<code>--&gt; vari
 <blockquote>
 <p>重影的概念与其他面向对象语言里的"重写"（<code>Override</code>）或"重载"（<code>Overload</code>）是不一样的，重影就是指变量的名称可以被重新使用的机制。</p>
 </blockquote>
-<h2 id="_5">小 结<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">小 结<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>通过这几段代码例子就能看出来<code>Rust</code>设计者对程序安全的重视，还有很多人说<code>Rust</code>对程序员要求很高，就这么简单几个例子，新手上来估计要和编译器斗争几把，才能成功编译。在你和编译器斗争的时候你已经得到了进化了，好了，以上是我个人学习总结，有问题<code>call</code>我在<code>github</code>上联系我，后面如果有时间的话，文章还会继续跟进。</p>
-<h2 id="_6">相关资料<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_7">相关资料<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
 <li>https://chromium.googlesource.com/v8/v8.git</li>
 <li>https://github.com/higker/learning-rust-zh</li>

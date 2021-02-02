@@ -31,8 +31,10 @@ fn main(){
     println!("{}",v)
 }
 ```
+
 编译这段代码编译器会报错:
-```bash linenums="1" hl_lines="4,10" 
+
+```bash linenums="1" hl_lines="4" 
 error[E0384]: cannot assign twice to immutable variable `v`
   --> variable.rs:13:5
    |
