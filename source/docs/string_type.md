@@ -54,7 +54,7 @@
     let hello = String::from("Hello, world!");
 
     println!("{}",hello)
-}
+
 ```
 
 如果需要将字符串面量转成`Sting`对象你就需要使用`to_string()`，字符串面量是没有任何操作方法的，只能存储`字符串的内容`。
