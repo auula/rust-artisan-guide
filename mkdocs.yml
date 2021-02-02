@@ -45,7 +45,7 @@ nav:
                   - "Rust 数据类型": docs/scalar_type.md
                   - "Rust 变量定义": docs/variable.md
                   #   - "Rust 常量定义": const.md
-                  - "Rust 字符串": string_type.md
+                  - "Rust 字符串": docs/string_type.md
                   - "Rust 运算符": operator.md
                   - "Rust 条件判断": condition.md
                   - "Rust 循环语句": loop_for.md
