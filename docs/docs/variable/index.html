@@ -848,14 +848,16 @@ For more information about this error, try <span class="sb">`</span>rustc --expl
 </td></tr></table>
 <h2 id="_5">常量与不可变变量的区别<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>在<code>Rust</code>想声明常量可以使用<code>const</code>关键字:</p>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">MY_AGE</span>:<span class="kt">u64</span> <span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;my age is {}&quot;</span><span class="p">,</span><span class="n">MY_AGE</span><span class="p">)</span><span class="w"> </span><span class="c1">// 22</span>
 </code></pre></div>
 </td></tr></table>
-- 定义常量时必须指定数据类型，而定义变量时数据类型可以省略。
-- 虽然声明变量时使用 <code>let</code> 关键字也会导致 变量不可以重新赋值，但我们可以加上 <code>mut</code> 关键字来让变量可以被重新赋值。然而常量却没有这种机制，常量一旦定义就永远不可变更和重新赋值。
-- 这是因为 常量 只是一个符号，会在 编译时 替换为具体的值，这个有点类似于 <code>C</code> 语言中的 <code>#define</code> 定义的符号。</p>
+<ul>
+<li>定义常量时必须指定数据类型，而定义变量时数据类型可以省略。</li>
+<li>虽然声明变量时使用 <code>let</code> 关键字也会导致 变量不可以重新赋值，但我们可以加上 <code>mut</code> 关键字来让变量可以被重新赋值。然而常量却没有这种机制，常量一旦定义就永远不可变更和重新赋值。</li>
+<li>这是因为 常量 只是一个符号，会在 编译时 替换为具体的值，这个有点类似于 <code>C</code> 语言中的 <code>#define</code> 定义的符号。</li>
+</ul>
 <h2 id="shadowing">重影 &amp; Shadowing<a class="headerlink" href="#shadowing" title="Permanent link">&para;</a></h2>
 <p>看看代码，按照之前我说的<code>let</code>声明的变量是不可变的，下面代码会编译出错吗？？？</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
