@@ -32,7 +32,7 @@ fn main(){
 }
 ```
 编译这段代码编译器会报错:
-```bash linemus="1" hl_lines="4,10" 
+```bash linemus="1" hl_lines="4" 
 error[E0384]: cannot assign twice to immutable variable `v`
   --> variable.rs:13:5
    |
