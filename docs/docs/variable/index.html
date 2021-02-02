@@ -854,9 +854,15 @@ For more information about this error, try <span class="sb">`</span>rustc --expl
 </code></pre></div>
 </td></tr></table>
 <ul>
-<li>定义常量时必须指定数据类型，而定义变量时数据类型可以省略。</li>
-<li>虽然声明变量时使用 <code>let</code> 关键字也会导致 变量不可以重新赋值，但我们可以加上 <code>mut</code> 关键字来让变量可以被重新赋值。然而常量却没有这种机制，常量一旦定义就永远不可变更和重新赋值。</li>
-<li>这是因为 常量 只是一个符号，会在 编译时 替换为具体的值，这个有点类似于 <code>C</code> 语言中的 <code>#define</code> 定义的符号。</li>
+<li>
+<p>定义常量时必须指定数据类型，而定义变量时数据类型可以省略。</p>
+</li>
+<li>
+<p>虽然声明变量时使用 <code>let</code> 关键字也会导致 变量不可以重新赋值，但我们可以加上 <code>mut</code> 关键字来让变量可以被重新赋值。然而常量却没有这种机制，常量一旦定义就永远不可变更和重新赋值。</p>
+</li>
+<li>
+<p>这是因为 常量 只是一个符号，会在 编译时 替换为具体的值，这个有点类似于 <code>C</code> 语言中的 <code>#define</code> 定义的符号。</p>
+</li>
 </ul>
 <h2 id="shadowing">重影 &amp; Shadowing<a class="headerlink" href="#shadowing" title="Permanent link">&para;</a></h2>
 <p>看看代码，按照之前我说的<code>let</code>声明的变量是不可变的，下面代码会编译出错吗？？？</p>
