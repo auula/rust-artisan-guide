@@ -39,6 +39,7 @@ fn main() {
 
 关系运算符测试或定义两个实体之间的关系类型，关系运算符用于比较两个或多个值之间的关系，是大于，是等于还是小于，关系运算符的返回结果为 `布尔类型`。
 
+![关系运算](https://tva1.sinaimg.cn/large/008eGmZEgy1gncyqiugmej30lm0blmyv.jpg)
 
 ```rust linenums='1'
     // 关系运算
@@ -53,6 +54,8 @@ fn main() {
 ## 逻辑运算符
 
 逻辑运算符，用于组合两个或者多个条件，逻辑运算符的返回结果也是`布尔类型`。
+
+![逻辑运算符](https://tva1.sinaimg.cn/large/008eGmZEgy1gncygkb6pgj30jd08zmyi.jpg)
 
 ```rust linenums='1'
     // 逻辑与  逻辑或 逻辑非 (取反)
