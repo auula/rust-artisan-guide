@@ -77,3 +77,54 @@ fn main() {
         println!("Not Elder");
     }
 ```
+
+output：
+
+```rust linenums='1'
+1 == 1 && 0 != 1 true
+1 == 1 || 0 != 1 true
+!(1 == 1) false
+true
+true
+Not Elder
+```
+
+## 位运算符
+对数据的二进制位进行`位运算` 例如下面的例子：
+
+![位运算符](https://tva1.sinaimg.cn/large/008eGmZEgy1gncygkb6pgj30jd08zmyi.jpg)
+
+```rust linenums='1'
+    //  位运算符
+    let a: i32 = 2; // 二进制表示为 0 0 0 0 0 0 1 0
+    let b: i32 = 3; // 二进制表示为 0 0 0 0 0 0 1 1
+
+    let mut result: i32;
+
+    result = a & b;
+    println!("(a & b) => {} ", result); // 0 0 0 0 0 0 1 0 = 2
+
+    result = a | b;
+    println!("(a | b) => {} ", result); // 0 0 0 0 0 0 1 1 = 3
+
+    result = a ^ b;
+    println!("(a ^ b) => {} ", result);
+
+    result = !b;
+    println!("(!b) => {} ", result);
+
+    result = a << b;
+    println!("(a << b) => {}", result);
+
+    result = a >> b;
+    println!("(a >> b) => {}", result);
+```
+output：
+```rust linenums='1'
+(a & b) => 2
+(a | b) => 3
+(a ^ b) => 1
+(!b) => -4
+(a << b) => 16
+(a >> b) => 0
+```
