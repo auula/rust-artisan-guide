@@ -685,7 +685,7 @@
 <p><code>函数说明</code>就是告诉编译器一个<code>函数的名称</code>、<code>变量</code>、和<code>返回值类型</code>。这三个合在一起组成了<code>函数的签名</code>，<code>函数签名</code>的作用就是防止出现两个相同的函数。</p>
 <p><img alt="函数说明" src="https://tva1.sinaimg.cn/large/008eGmZEgy1gnlxm78bqrj30e306fdgg.jpg" /></p>
 <h2 id="_2">函数定义<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p><code>函数</code>可以帮我们把可以复通的代码组装到一个函数块里面，方便在其他地方进行调用。我们可以把代码划分到不同的函数中，这样可以使得代码可读性更强，逻辑更简单。</p>
+<p><code>函数</code>可以帮我们把可以复用的代码组装到一个函数块里面，方便在其他地方进行调用。我们可以把代码划分到不同的函数中，这样可以使得代码可读性更强，逻辑更简单。</p>
 <p>因此，定义函数时首先想的并不是我要定义一个函数，而是我这个任务要怎么做，要定义哪些函数来完成。</p>
 <p>定义函数时必须以 <code>fn</code> 关键字开头，<code>fn</code> 关键字是 <code>function</code> 的缩写，函数内部必须包含函数要执行的具体代码，我们把这些代码称之为 <code>函数体</code>。</p>
 <p>定义函数的语法如下，定义函数时必须使用 <code>fn</code>关键字开头，后面跟着要定义的<code>函数名</code>。</p>
@@ -707,6 +707,7 @@
 </code></pre></div>
 </td></tr></table>
 为了运行一个函数首先必须调用它。函数不像普通的语句，写完了会自动执行，函数需要调用才会被执行。</p>
+<p>👇下面，函数 <code>main()</code> 就是 <code>调用者函数</code>，也就是 <code>调用者</code>。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -715,9 +716,9 @@
 6
 7
 8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="hll"><span class="w">    </span><span class="c1">//调用函数 out: 👋 Hello!</span>
-</span><span class="w">    </span><span class="n">say_hi</span><span class="p">();</span><span class="w"> </span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//调用函数 out: 👋 Hello!</span>
+<span class="hll"><span class="w">    </span><span class="n">say_hi</span><span class="p">();</span><span class="w"> </span>
+</span><span class="p">}</span><span class="w"></span>
 
 <span class="k">fn</span> <span class="nf">say_hi</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;👋 Hello!&quot;</span><span class="p">);</span><span class="w"></span>
