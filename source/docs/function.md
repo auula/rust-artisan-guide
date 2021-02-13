@@ -70,5 +70,65 @@ fn sum() -> i8 {
 没有 `return` 语句则使用最后一条语句的结果作为返回值：
 
 ```rust linenums='1'
+fn main() {
+    assert_eq!(assert_sum(),sum());
+}
 
+fn sum() -> i8 {
+    return 5 + 5;
+}
+
+fn assert_sum() -> i8 {
+    5 + 5 // 最后一条语句返回 并且没有‘;’
+}
+```
+## 函数参数
+
+`函数参数` 是一种将外部变量和值带给函数内部代码的一种机制，函数参数是函数签名的一部分，函数签名的最大作用，就是防止定义两个相同的签名的函数。
+
+- 我们把函数定义时指定的参数名叫做 `形参`
+- 把调用函数时传递给函数的变量值叫做 `实参`
+
+函数参数有两种传值方法，一种是把`值的值接传递`给函数，另一种是把`值在内存上的保存位置`传递给函数。
+
+### 传值调用
+
+`传值调用` 就是简单的把传递的变量的值传递给函数的 `形参`，从某些方面说了，就是把函数参数也赋值为传递的值。
+
+因为是赋值，所以函数参数和传递的变量其实是各自保存了相同的值，`互不影响`，因此函数内部修改函数参数的值并不会影响外部变量的值。
+
+```rust linenums='1'
+fn main() {
+    let name = "Jarvib";
+    edit_name(name);
+    println!("main() Your name is {}",name);
+    // edit_name() Your name is Jarvib Ding
+    // main() Your name is Jarvib
+}
+
+fn edit_name(mut name:&'static str){
+    name = "Jarvib Ding";
+    println!("edit_name() Your name is {}",name)
+}
+```
+
+### 引用传递
+
+值传递只是会重新创建一个变量，但引用传递则不会，引用传递把当前变量的内存位置传递给函数。
+
+上面的代码中，星号`（*）` 用于访问变量 `param_no` 指向的内存位置上存储的变量的值。这种操作也称为 `解引用`。
+
+```rust linenums='1'
+fn main() {
+    let mut no:i32 = 22;
+    println!("The value of no is:{}",no);
+    mutate_no_to_zero(&mut no);
+    println!("The value of no is:{}",no);
+    // The value of no is:22
+    // The value of no is:0
+}
+
+fn mutate_no_to_zero(param_no:&mut i32){
+   *param_no = 0; //解引用操作
+}
 ```
