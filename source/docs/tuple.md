@@ -41,7 +41,7 @@ fn main() {
     people.2 = "Jarvib Ding";
     // 通过 解构赋值 (destructing)
     let (v1, v2, v3) = people;
-    println!("{},{},{}", v1, v2, v3)
+    println!("{},{},{}", v1, v2, v3);
 }
 ```
 output:
