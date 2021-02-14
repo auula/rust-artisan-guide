@@ -50,7 +50,7 @@ nav:
                   - "Rust 条件判断": docs/condition.md
                   - "Rust 循环语句": docs/loop_for.md
                   - "Rust 函数定义": docs/function.md
-                  - "Rust 元组Tuple": tuple.md
+                  - "Rust 元组Tuple": docs/tuple.md
                   - "Rust 切片Slice": slice.md
                   - "Rust 枚举使用": enum.md
                   - "Rust 结构体": struct.md
