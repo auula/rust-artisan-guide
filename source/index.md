@@ -24,6 +24,8 @@
 
 ## 讨论组
 
+> 微信群二维码过期你可以添加我微信: `AA996DD`
+
 ![微信群](https://tva1.sinaimg.cn/large/008eGmZEgy1gncz01tu4rj30kw0r2ace.jpg)
 
 <!-- ``` rust linenums="1" hl_lines="2"
