@@ -816,7 +816,7 @@
 </td></tr></table>
 <p>首先要说明的是 <code>match</code> 关键字后面的表达式不必括在括号中。也就是 <code>variable_expression</code> 不需要用一对 括号(<code>()</code>) 括起来。</p>
 <p>其次，<code>match</code> 语句在执行的时候，会计算 <code>variable_expression</code>表达式的值，然后把计算后的结果和每一个 <code>constant_exprN</code> 匹配，使用的是 全等于 也就是 <code>===</code> 来匹配。如果匹配成功则执行 <code>=&gt; {}</code> 里面的语句。</p>
-<p>如果 <code>variable_expression</code> 表达式的值没有和任何一个 <code>constant_exprN</code> 匹配，那么它会默认匹配 _。</p>
+<p>如果 <code>variable_expression</code> 表达式的值没有和任何一个 <code>constant_exprN</code> 匹配，那么它会默认匹配 <code>_</code>。</p>
 <p>因此，当没有匹配时，默认会执行 <code>_ =&gt; {}</code> 中的语句。</p>
 <p><code>match</code> 语句有返回值，它把 匹配值 后执行的最后一条语句的结果当作返回值。</p>
 <p><code>_ =&gt; {}</code> 语句是可选的，也就是说 <code>match</code> 语句可以没有它。</p>

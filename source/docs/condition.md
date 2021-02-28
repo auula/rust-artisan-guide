@@ -89,7 +89,7 @@ let expressionResult = match variable_expression {
 
 其次，`match` 语句在执行的时候，会计算 `variable_expression `表达式的值，然后把计算后的结果和每一个 `constant_exprN` 匹配，使用的是 全等于 也就是 `===` 来匹配。如果匹配成功则执行 `=> {}` 里面的语句。
 
-如果 `variable_expression` 表达式的值没有和任何一个 `constant_exprN` 匹配，那么它会默认匹配 _。
+如果 `variable_expression` 表达式的值没有和任何一个 `constant_exprN` 匹配，那么它会默认匹配 `_`。
 
 因此，当没有匹配时，默认会执行 `_ => {}` 中的语句。
 
