@@ -106,16 +106,14 @@ fn main() {
     for value in year.iter() {
         println!("value is: {}", value);
     }
-
-    updated_by_index(3, 2021, &mut year);
+    // updated of [1999, 2019, 2021, 2021]
+    updated_by_index(2, 2021, &mut year);
     println!("updated of {:?}", year)
-    // updated of [2021, 2021, 2021, 2021]
 }
 
-// 通过下标修改某个元素的值 
+// 通过下标修改某个元素的值
 fn updated_by_index(index: usize, value: i32, arr: &mut [i32; 4]) {
-    for i in 0..index {
-        arr[i] = value;
-    }
+    arr[index] = value;
 }
+
 ```
