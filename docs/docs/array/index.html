@@ -826,7 +826,23 @@ output:
 </li>
 </ul>
 <p><strong>引用传递例子:</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>17
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
 18
 19
 20
@@ -835,23 +851,7 @@ output:
 23
 24
 25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">year</span>: <span class="p">[</span><span class="kt">i32</span><span class="p">;</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1999</span><span class="p">,</span><span class="w"> </span><span class="mi">2019</span><span class="p">,</span><span class="w"> </span><span class="mi">2020</span><span class="p">,</span><span class="w"> </span><span class="mi">2021</span><span class="p">];</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// let arr = [10,20,30,40];</span>
 <span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;array is {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="p">);</span><span class="w"></span>
@@ -867,8 +867,8 @@ output:
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="n">updated_by_index</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2021</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">year</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;updated of {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// updated of [2021, 2021, 2021, 2021]</span>
+<span class="hll"><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;updated of {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="p">)</span><span class="w"></span>
+</span><span class="w">    </span><span class="c1">// updated of [2021, 2021, 2021, 2021]</span>
 <span class="p">}</span><span class="w"></span>
 
 <span class="c1">// 通过下标修改某个元素的值 </span>

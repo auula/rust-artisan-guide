@@ -91,7 +91,7 @@ for value in year.iter() {
 
 **引用传递例子:**
 
-```rust linenums='17'
+```rust linenums='1' hl_lines="17"
 fn main() {
     let mut year: [i32; 4] = [1999, 2019, 2020, 2021];
     // let arr = [10,20,30,40];
