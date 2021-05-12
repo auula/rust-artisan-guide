@@ -37,7 +37,7 @@ theme:
 
 nav:
         - 关于本站: index.md
-        - 目 录:
+        - 基础知识:
                   - "Rust 介绍": docs/introduction.md
                   #- "Rust 基础教程": basics.md
                   - "Rust 开发环境搭建": docs/environment.md
@@ -55,6 +55,7 @@ nav:
                   - "Rust 切片Slice": slice.md
                   - "Rust 枚举使用": enum.md
                   - "Rust 结构体": struct.md
+        - 高级部分:
                   - "Rust ownership": ownership.md
                   - "Rust 模块Modules": modules.md
                   - "Rust Collection": collection.md
