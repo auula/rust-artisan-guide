@@ -1,6 +1,6 @@
-# 欢迎来到本站🦀！
+**，您好！欢迎来到本站🦀！如果觉得这个对你有帮助可以留一个`star`再走！**
 
-![Rust](images/rust-logo-banner.png)
+![Rust](https://www.rust-lang.org/static/images/ferris.gif)
 
 这是一个分享`Rust`学习资料的在线学习网站  [https://getrust.tech](https://getrust.tech)📚。
 
@@ -26,9 +26,9 @@
 
 > 微信群二维码过期了，你可以添加我微信: `AA996DD`
 
-## 许 可 
+## 许可协议
 
-本电子杂志采用「[署名-非商业性使用-禁止演绎 4.0 国际 (CC BY-NC-ND 4.0)许可协议](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-Hans)」进行许可，非商业性转载请注明出处，其他需求请与我们联系。
+本电子书采用「[署名-非商业性使用-禁止演绎 4.0 国际 (CC BY-NC-ND 4.0)许可协议](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-Hans)」进行许可，非商业性转载请注明出处，其他需求请与我们联系。
 
 <!-- ![微信群](https://tva1.sinaimg.cn/large/008eGmZEgy1gncz01tu4rj30kw0r2ace.jpg) -->
 
@@ -37,3 +37,4 @@ fn main(){
     println!("Hello World!");
 }
 ``` -->
+
