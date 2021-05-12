@@ -1,4 +1,4 @@
-**，您好！欢迎来到本站🦀！如果觉得这个对你有帮助可以留一个`star`再走！**
+**您好！欢迎来到本站🦀！如果觉得这个对你有帮助可以留一个`star`再走！**
 
 ![Rust](https://www.rust-lang.org/static/images/ferris.gif)
 
