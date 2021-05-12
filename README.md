@@ -1,6 +1,6 @@
 # learn-rust
 
-![Rust](/docs/images/rust-logo-banner.png)
+![Rust](https://www.rust-lang.org/static/images/ferris.gif)
 
 这是一个分享`Rust`学习资料的在线学习网站  [https://getrust.tech](https://getrust.tech)📚。
 
