@@ -16,7 +16,7 @@
     
     
       
-        <title>Struct - Rust中文宝典</title>
+        <title>Rust 结构体 - Rust中文宝典</title>
       
     
     
@@ -111,7 +111,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Struct
+              Rust 结构体
             
           </span>
         </div>
@@ -242,12 +242,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
       
       <label class="md-nav__link" for="nav-2">
         基础知识
@@ -410,19 +412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slice.md" class="md-nav__link">
-        Rust 切片Slice
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../enum.md" class="md-nav__link">
+      <a href="./" class="md-nav__link">
         Rust 枚举使用
       </a>
     </li>
@@ -432,11 +422,66 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../struct.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Rust 结构体
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Rust 结构体
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enum" class="md-nav__link">
+    enum
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#struct" class="md-nav__link">
+    struct
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    给结构体添加方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    小结
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -677,7 +722,7 @@
                   </a>
                 
                 
-                  <h1>Struct</h1>
+                  <h1>Rust 结构体</h1>
                 
                 <h2 id="enum">enum<a class="headerlink" href="#enum" title="Permanent link">&para;</a></h2>
 <p>枚举类型，如果你之前从事过<code>Java</code>相关的开发应该不陌生，在<code>Rust</code>里面也有<code>枚举</code>类型，枚举类型是一个自定义数据类型，通过<code>enum</code>关键字来声明，<code>body</code>里面可以包含多个自定义的枚举值，枚举可以用来限制某个值或者类型范围。</p>
@@ -820,6 +865,27 @@ Hi, my name is Jarvib Ding,age is <span class="m">22</span> and weight is <span 
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="./" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                Rust 枚举使用
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

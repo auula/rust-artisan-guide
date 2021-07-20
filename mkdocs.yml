@@ -52,9 +52,9 @@ nav:
                   - "Rust 函数定义": docs/function.md
                   - "Rust 元组Tuple": docs/tuple.md
                   - "Rust 数组的使用": docs/array.md
-                  - "Rust 切片Slice": slice.md
-                  - "Rust 枚举使用": enum.md
-                  - "Rust 结构体": struct.md
+                  #   - "Rust 切片Slice": slice.md
+                  - "Rust 枚举使用": docs/struct.md
+                  - "Rust 结构体": docs/struct.md
         - 高级部分:
                   - "Rust ownership": ownership.md
                   - "Rust 模块Modules": modules.md
