@@ -904,6 +904,24 @@ output:
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
+<p><code>Rust</code>中的数组声明是<code>[T;n]</code>进行的，<code>T</code>是元素类型，<code>n</code>是这组元素有多少个坑位，创建的时候可以去掉类型和大小，程序会自动推断出来。</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="c1">// 数组</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">arr</span>:<span class="p">[</span><span class="kt">f32</span><span class="p">;</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.2</span><span class="p">,</span><span class="mf">3.33</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="n">arr</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 类型自动推导</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">arr_infer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Hello&quot;</span><span class="p">,</span><span class="s">&quot;,&quot;</span><span class="p">,</span><span class="s">&quot;World!&quot;</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">new</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 迭代器</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">arr_infer</span><span class="p">.</span><span class="n">iter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">str</span><span class="p">.</span><span class="n">push_str</span><span class="p">(</span><span class="n">v</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;str = {}&quot;</span><span class="p">,</span><span class="kt">str</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p><a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=195d35086371375f182fc67922d81b44">点击查看元组代码案例</a></p>
                 
               
               

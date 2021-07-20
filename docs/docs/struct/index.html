@@ -16,7 +16,7 @@
     
     
       
-        <title>Rust 元组Tuple - Rust中文宝典</title>
+        <title>Struct - Rust中文宝典</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tuple" class="md-skip">
+        <a href="#enum" class="md-skip">
           跳转至
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Rust 元组Tuple
+              Struct
             
           </span>
         </div>
@@ -242,14 +242,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
       
       <label class="md-nav__link" for="nav-2">
         基础知识
@@ -386,59 +384,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Rust 元组Tuple
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../tuple/" class="md-nav__link">
         Rust 元组Tuple
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tuple" class="md-nav__link">
-    tuple元组
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tuple_1" class="md-nav__link">
-    tuple元组的定义
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tuple_2" class="md-nav__link">
-    tuple元组的使用
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -683,22 +633,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tuple" class="md-nav__link">
-    tuple元组
+  <a href="#enum" class="md-nav__link">
+    enum
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tuple_1" class="md-nav__link">
-    tuple元组的定义
+  <a href="#struct" class="md-nav__link">
+    struct
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tuple_2" class="md-nav__link">
-    tuple元组的使用
+  <a href="#_1" class="md-nav__link">
+    给结构体添加方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    小结
   </a>
   
 </li>
@@ -715,133 +672,140 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/higker/learn-rust/edit/master/docs/docs/tuple.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/higker/learn-rust/edit/master/docs/docs/struct.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>Rust 元组Tuple</h1>
+                  <h1>Struct</h1>
                 
-                <h2 id="tuple"><code>tuple</code>元组<a class="headerlink" href="#tuple" title="Permanent link">&para;</a></h2>
-<p><code>tuple</code>是<code>复合类型</code>可以存储多个不同类型的数据，<code>复合类型</code>就像我们的菜篮子，里面可以放各种类型的菜。</p>
-<ul>
-<li><code>tuple</code>长度是固定的，而且一旦定义了，就不能再次更改。</li>
-<li><code>tuple</code>是下标从<code>0</code>开始。</li>
-</ul>
-<h2 id="tuple_1"><code>tuple</code>元组的定义<a class="headerlink" href="#tuple_1" title="Permanent link">&para;</a></h2>
-<p>在定义的时候可以指定存储的数据类型：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">tuple_name</span>:<span class="p">(</span><span class="n">data_type1</span><span class="p">,</span><span class="n">data_type2</span><span class="p">,</span><span class="n">data_type3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">value1</span><span class="p">,</span><span class="n">value2</span><span class="p">,</span><span class="n">value3</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
-<p><code>Rust</code> 中元组的定义很简单，就是使用一对小括号 <code>()</code> 把所有元素放在一起，元素之间使用逗号 <code>,</code> 分隔，当然也可以忽略类型声明。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">tuple_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span><span class="n">v3</span><span class="p">)</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
-<h2 id="tuple_2"><code>tuple</code>元组的使用<a class="headerlink" href="#tuple_2" title="Permanent link">&para;</a></h2>
-<ul>
-<li>下标访问</li>
-<li>解构赋值</li>
-</ul>
-<p>我们可以使用 <code>元组名.索引数字</code> 来访问元组中相应索引位置的元素。索引从 <code>0</code> 开始。</p>
-<p>如果要输出元组中的所有元素，必须使用 <code>{:?}</code> 格式化符：</p>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">tuples</span>: <span class="p">(</span><span class="o">&amp;&#39;</span><span class="nb">static</span><span class="w"> </span><span class="kt">str</span><span class="p">,</span><span class="w"> </span><span class="kt">i8</span><span class="p">,</span><span class="w"> </span><span class="kt">f64</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;🦀&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w"> </span><span class="mf">3.1415927</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tuples</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 声明一个可变的tuple</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">people</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;tom&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;robin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;jarvib&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 通过下标访问</span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{},{},{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">people</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">people</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">people</span><span class="p">.</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 修改下标为2的值</span>
-<span class="w">    </span><span class="n">people</span><span class="p">.</span><span class="mi">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Jarvib Ding&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 通过 解构赋值 (destructing)</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="n">v2</span><span class="p">,</span><span class="w"> </span><span class="n">v3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">people</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{},{},{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="n">v2</span><span class="p">,</span><span class="w"> </span><span class="n">v3</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
-output:
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s">&quot;🦀&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w"> </span><span class="mf">3.1415927</span><span class="p">)</span><span class="w"></span>
-<span class="n">tom</span><span class="p">,</span><span class="n">robin</span><span class="p">,</span><span class="n">jarvib</span><span class="w"></span>
-<span class="n">tom</span><span class="p">,</span><span class="n">robin</span><span class="p">,</span><span class="n">Jarvib</span><span class="w"> </span><span class="n">Ding</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
-<p><code>tuple</code>即<code>元组</code>，元组类型是由多个不同类型的元素组成的复合类型，通过<code>()</code>小括号把元素组织在一起成一个新的数据类型。元组的长度在定义的时候就已经是固定的了，不能修改，如果指定了元素的数据类型，那么你的元素就要对号入座！！！否则编译器会教训你！</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 指定数据类型</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">tup_type</span>:<span class="p">(</span><span class="kt">i8</span><span class="p">,</span><span class="kt">i32</span><span class="p">,</span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="o">-</span><span class="mi">1024</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 解构元素</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">one</span><span class="p">,</span><span class="n">two</span><span class="p">,</span><span class="n">three</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tup_type</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 二维的元组</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">tup_2d</span>:<span class="p">(</span><span class="kt">f64</span><span class="p">,(</span><span class="kt">i8</span><span class="p">,</span><span class="kt">i32</span><span class="p">,</span><span class="kt">bool</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">3.1415927</span><span class="p">,(</span><span class="n">one</span><span class="p">,</span><span class="n">two</span><span class="p">,</span><span class="n">three</span><span class="p">));</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;tup_2d = {:?}&quot;</span><span class="p">,</span><span class="n">tup_2d</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 索引</span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;π = {:?}&quot;</span><span class="p">,</span><span class="n">tup_2d</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
-<p>元组的访问方式有好几种，通过下标去访问，也可以使用解构赋值给新的变量去访问，但是不支持迭代器去访问。</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">tup_2d</span><span class="p">.</span><span class="mf">1.</span><span class="n">iter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="n">v</span><span class="p">)</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>   Compiling playground v0.0.1 <span class="o">(</span>/playground<span class="o">)</span>
-error<span class="o">[</span>E0599<span class="o">]</span>: no method named <span class="sb">`</span>iter<span class="sb">`</span> found <span class="k">for</span> tuple <span class="sb">`</span><span class="o">(</span>i8, i32, bool<span class="o">)</span><span class="sb">`</span> <span class="k">in</span> the current scope
-  --&gt; src/main.rs:10:23
-   <span class="p">|</span>
-<span class="m">10</span> <span class="p">|</span>     <span class="k">for</span> v <span class="k">in</span> tup_type.iter<span class="o">()</span> <span class="o">{</span>
-   <span class="p">|</span>                       ^^^^ method not found <span class="k">in</span> <span class="sb">`</span><span class="o">(</span>i8, i32, bool<span class="o">)</span><span class="sb">`</span>
-
-error: aborting due to previous error
-
-For more information about this error, try <span class="sb">`</span>rustc --explain E0599<span class="sb">`</span>.
-error: could not compile <span class="sb">`</span>playground<span class="sb">`</span>
-
-To learn more, run the <span class="nb">command</span> again with --verbose.
-</code></pre></div>
-<p><code>元组</code>的每个元素的类型可以不同，因此您无法对其进行迭代。元组甚至不能保证以与类型定义相同的顺序存储数据，因此即使您自己为它们实现<code>Iterator</code>，它们也不适合进行有效的迭代。</p>
-<p>但是如果元素是支持实现了<code>Iterator</code>就可以通过<code>.iter()</code>进行迭代访问。</p>
-<p><div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">arrays</span>:<span class="p">[</span><span class="kt">usize</span><span class="p">;</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">5</span><span class="p">];</span><span class="w"></span>
-
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="mi">5</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">arrays</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="n">arrays</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">tup_arr</span>:<span class="p">(</span><span class="o">&amp;</span><span class="kt">str</span><span class="p">,[</span><span class="kt">usize</span><span class="p">;</span><span class="mi">5</span><span class="p">])</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;tup_arr&quot;</span><span class="p">,</span><span class="n">arrays</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="n">tup_arr</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">tup_arr</span><span class="p">.</span><span class="mf">1.</span><span class="n">iter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="n">v</span><span class="p">)</span><span class="w"></span>
+                <h2 id="enum">enum<a class="headerlink" href="#enum" title="Permanent link">&para;</a></h2>
+<p>枚举类型，如果你之前从事过<code>Java</code>相关的开发应该不陌生，在<code>Rust</code>里面也有<code>枚举</code>类型，枚举类型是一个自定义数据类型，通过<code>enum</code>关键字来声明，<code>body</code>里面可以包含多个自定义的枚举值，枚举可以用来限制某个值或者类型范围。</p>
+<p><div class="highlight"><pre><span></span><code><span class="w">    </span><span class="cp">#[derive(Debug)]</span><span class="w"></span>
+<span class="w">    </span><span class="k">enum</span> <span class="nc">Gender</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">Boy</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">Girl</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
-例如上的元素是一个<code>array</code>，<code>Rust</code>中的数组和其他语言一样，一组类型相同的元素组成的复合类型，数组在底层存储是一块连续的内存空间。</p>
-<p><a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=195d35086371375f182fc67922d81b44">点击查看元组代码案例</a></p>
+上面就定义一了个类型名字为<code>Gender</code>的枚举，<code>Boy</code>和<code>Girl</code>是枚举可供使用的值，<code>#[derive(Debug)]</code>注释是让<code>Gender</code>自动实现<code>Debug tarit</code>后面文章将深入。</p>
+<h2 id="struct">struct<a class="headerlink" href="#struct" title="Permanent link">&para;</a></h2>
+<p>结构体可以把一些自定义的数据类型通过已有的类型组装成一个新的自定义数据类型，通过<code>struct</code>关键字就可以创建一个结构体，结构体字段格式<code>name:type</code>，<code>name</code>是结构体字段名，<code>type</code>是字段的类型，默认是不可变的。</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 枚举现在取值范围</span>
+<span class="w">    </span><span class="cp">#[derive(Debug)]</span><span class="w"></span>
+<span class="w">    </span><span class="k">enum</span> <span class="nc">Gender</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">Boy</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">Girl</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 定义一个结构体</span>
+<span class="w">    </span><span class="cp">#[derive(Debug)]</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span> <span class="nc">Programmer</span><span class="o">&lt;&#39;</span><span class="na">skill</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">name</span>: <span class="nb">String</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">skill</span>: <span class="p">[</span><span class="o">&amp;&#39;</span><span class="na">skill</span><span class="w"> </span><span class="kt">str</span><span class="p">;</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="n">sex</span>: <span class="nc">Gender</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 创建一个实例</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">engineer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Programmer</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">name</span>: <span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;Jaco Ding&quot;</span><span class="p">),</span><span class="w"> </span><span class="c1">// String类型内容可变</span>
+<span class="w">        </span><span class="n">skill</span>: <span class="p">[</span><span class="s">&quot;Java&quot;</span><span class="p">,</span><span class="s">&quot;Go&quot;</span><span class="p">,</span><span class="s">&quot;Rust&quot;</span><span class="p">],</span><span class="w"> </span><span class="c1">// 一个长度为3的字符串面量类型的数组</span>
+<span class="w">        </span><span class="n">sex</span>:<span class="nc">Gender</span>::<span class="n">Boy</span><span class="p">,</span><span class="w"> </span><span class="c1">// 通过枚举限制参数类型</span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;engineer = {:?}&quot;</span><span class="p">,</span><span class="n">engineer</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+有了自定义的类型了也就是<code>struct</code>就可以通过自定义的类型来处理一些特殊的需求了，例如下面的代码定义了一个元素类型为<code>Programmer</code>长度为<code>2</code>的数组。</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">Doris</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Programmer</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">name</span>: <span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;Doris&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">skill</span>: <span class="p">[</span><span class="s">&quot;Vue&quot;</span><span class="p">,</span><span class="s">&quot;TypeScript&quot;</span><span class="p">,</span><span class="s">&quot;JavaScript&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="n">sex</span>:<span class="nc">Gender</span>::<span class="n">Girl</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">Jaco</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Programmer</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">name</span>: <span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;Jaco&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">skill</span>: <span class="p">[</span><span class="s">&quot;Java&quot;</span><span class="p">,</span><span class="s">&quot;Go&quot;</span><span class="p">,</span><span class="s">&quot;Rust&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="n">sex</span>:<span class="nc">Gender</span>::<span class="n">Boy</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">employees</span>:<span class="p">[</span><span class="n">Programmer</span><span class="p">;</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">Doris</span><span class="p">,</span><span class="n">Jaco</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">iter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="n">e</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>结构体<code>Programmer</code>上的<code>&lt;'skill&gt;</code> 解决<code>skill</code>数组的生命周期问题<code>undeclared lifetime</code>，所有权问题，所有权是<code>Rust</code>语言核心的知识点，这些在后面文章中慢慢更新。</p>
+<h2 id="_1">给结构体添加方法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>结构体(<code>struct</code>)支持组合不同的数据类型，但不同于元组，结构体需要给每一部分数据命名以标志其含义，因而结构体比元组更加灵活，不依赖顺序来指定或访问实例中的值。</p>
+<ol>
+<li>定义结构体
+<div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">name</span>: <span class="nb">String</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">age</span>: <span class="kt">u8</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">is_man</span>: <span class="kt">bool</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">weight</span>: <span class="kt">f32</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></li>
+<li>创建实例
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">user1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// 根据指定的字符串字面量来创建字符串对象，使用 String::from() 方法。</span>
+<span class="w">      </span><span class="n">name</span>: <span class="nb">String</span>::<span class="n">form</span><span class="p">(</span><span class="s">&quot;Jarvib Ding&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="w">      </span><span class="n">age</span>: <span class="mh">0x16</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">is_man</span>: <span class="nc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">weight</span>: <span class="mf">67.8</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div></li>
+<li>实现方法
+<div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">name</span>: <span class="nb">String</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">age</span>: <span class="kt">u8</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">is_man</span>: <span class="kt">bool</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">weight</span>: <span class="kt">f32</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// gender 返回性别字符串</span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">gender</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kp">&amp;</span><span class="o">&#39;</span><span class="nb">static</span> <span class="kt">str</span> <span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">is_man</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;is it a boy.&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="s">&quot;is a girl&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// say_hi 打招呼函数</span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">say_hi</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="fm">println!</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="s">&quot;Hi, my name is {},age is {} and weight is {} kg,{}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="bp">self</span><span class="p">.</span><span class="n">age</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="bp">self</span><span class="p">.</span><span class="n">weight</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="bp">self</span><span class="p">.</span><span class="n">gender</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">user1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">name</span>: <span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;Jarvib Ding&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">age</span>: <span class="mh">0x16</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">is_man</span>: <span class="nc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">weight</span>: <span class="mf">67.8</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="n">user1</span><span class="p">.</span><span class="n">say_hi</span><span class="p">()</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<code>impl</code>是<code>implementation</code>的缩写，后面加结构体名，表示为该结构体实现方法，要实现的方法包在<code>impl</code>块中，依然使用<code>fn</code>关键字。类似<code>Java</code>中的<code>this</code>关键字。</li>
+</ol>
+<p>好了，运行这个<code>say_hi</code>函数:
+<div class="highlight"><pre><span></span><code>cargo run
+    Finished dev <span class="o">[</span>unoptimized + debuginfo<span class="o">]</span> target<span class="o">(</span>s<span class="o">)</span> <span class="k">in</span> <span class="m">0</span>.00s
+     Running <span class="sb">`</span>target/debug/demo<span class="sb">`</span>
+
+Hi, my name is Jarvib Ding,age is <span class="m">22</span> and weight is <span class="m">67</span>.8 kg,is it a boy.
+</code></pre></div></p>
+<h2 id="_2">小结<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><code>Rust</code>中的结构体还有两种特殊结构：<code>元组结构体</code>、<code>单结构体</code>，枚举也有<code>带有参数</code>的枚举。。。本文就学习总结了一下常见复合类型的使用，未深入。</p>
                 
               
               
@@ -856,41 +820,6 @@ To learn more, run the <span class="nb">command</span> again with --verbose.
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../function/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-            </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  上一页
-                </span>
-                Rust 函数定义
-              </div>
-            </div>
-          </a>
-        
-        
-          <a href="../array/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  下一页
-                </span>
-                Rust 数组的使用
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

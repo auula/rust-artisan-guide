@@ -117,3 +117,25 @@ fn updated_by_index(index: usize, value: i32, arr: &mut [i32; 4]) {
 }
 
 ```
+
+`Rust`中的数组声明是`[T;n]`进行的，`T`是元素类型，`n`是这组元素有多少个坑位，创建的时候可以去掉类型和大小，程序会自动推断出来。
+
+```rust
+    // 数组
+    let arr:[f32;3] = [1.0,2.2,3.33];
+    
+    println!("{:?}",arr);
+    
+    // 类型自动推导
+    let arr_infer = ["Hello",",","World!"];
+    
+    let mut str = String::new();
+    // 迭代器
+    for v in arr_infer.iter() {
+        str.push_str(v);
+    }
+    
+    println!("str = {}",str);
+```
+
+[点击查看元组代码案例](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=195d35086371375f182fc67922d81b44)
