@@ -55,6 +55,7 @@ nav:
                   #   - "Rust 切片Slice": slice.md
                   - "Rust 枚举使用": docs/struct.md
                   - "Rust 结构体": docs/struct.md
+                  - "Vector容器类型": docs/vector.md
         - 高级部分:
                   - "Rust ownership": ownership.md
                   - "Rust 模块Modules": modules.md
