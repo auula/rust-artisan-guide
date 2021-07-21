@@ -16,7 +16,7 @@
     
     
       
-        <title>Rust 您好世界 - Rust中文宝典</title>
+        <title>Vector容器类型 - Rust中文宝典</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rust" class="md-skip">
+        <a href="#vector" class="md-skip">
           跳转至
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Rust 您好世界
+              Vector容器类型
             
           </span>
         </div>
@@ -290,56 +290,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Rust 您好世界
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../hello_world/" class="md-nav__link">
         Rust 您好世界
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#cargo" class="md-nav__link">
-    把 Cargo 当作习惯
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hello-world" class="md-nav__link">
-    Hello, World!
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -479,11 +434,80 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../vector/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Vector容器类型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Vector容器类型
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vector" class="md-nav__link">
+    Vector
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    创建
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    修改和删除
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    遍历
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    小结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    其他
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -672,8 +696,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -682,15 +704,43 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cargo" class="md-nav__link">
-    把 Cargo 当作习惯
+  <a href="#vector" class="md-nav__link">
+    Vector
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#hello-world" class="md-nav__link">
-    Hello, World!
+  <a href="#_1" class="md-nav__link">
+    创建
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    修改和删除
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    遍历
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    小结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    其他
   </a>
   
 </li>
@@ -707,87 +757,118 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/higker/learn-rust/edit/master/docs/docs/hello_world.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/higker/learn-rust/edit/master/docs/docs/vector.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="rust">用Rust写出你第一个程序<a class="headerlink" href="#rust" title="Permanent link">&para;</a></h1>
-<h2 id="cargo">把 <code>Cargo</code> 当作习惯<a class="headerlink" href="#cargo" title="Permanent link">&para;</a></h2>
-<p>对于简单项目， <code>Cargo</code> 并不比 <code>rustc</code> 提供了更多的优势，不过随着开发的深入，终将证明其价值。对于拥有多个 <code>crate</code> 的复杂项目，交给 <code>Cargo</code> 来协调构建将简单的多。</p>
-<ul>
-<li>
-<p><code>Rust</code> 内置了一个包管理器 <code>cargo</code>，它会随着 <code>Rust</code> 的安装而安装。</p>
-</li>
-<li>
-<p><code>cargo</code> 类似于 <code>Python</code> 中的 <code>pip</code> 或 <code>Ruby</code> 中的 <code>RubyGems</code> 或 <code>Node.js</code> 中的 <code>NPM</code>。</p>
-</li>
-<li>
-<p>当然了<code>cargo</code> 不仅仅是一个包管理器，它还是 <code>Rust</code> 的项目管理利器。</p>
-</li>
-</ul>
-<h2 id="hello-world">Hello, World!<a class="headerlink" href="#hello-world" title="Permanent link">&para;</a></h2>
-<p><code>Cargo</code> 是 <code>Rust</code> 的构建系统和包管理器。大多数 <code>Rustacean</code> 们使用 <code>Cargo</code> 来管理他们的 <code>Rust</code> 项目，因为它可以为你处理很多任务，比如构建代码、下载依赖库并编译这些库。</p>
-<ul>
-<li>检测是否安装输入命令<code>cargo --version</code></li>
-</ul>
-<p>创建一个基于<code>cargo</code>的项目，在你需要工作的目录输入下面命令</p>
-<p><div class="highlight"><pre><span></span><code>$ cargo new hello_cargo
-$ <span class="nb">cd</span> hello_cargo
-</code></pre></div>
-<img alt="步骤截图" src="https://tva1.sinaimg.cn/large/008eGmZEgy1gmm424ai02j30vl0ozth6.jpg" /></p>
-<p>先不急着coding，先看看<code>Cargo.toml</code>文件里面是啥</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">[package]</span>
-<span class="c1"># 项目名字</span>
-<span class="n">name</span> <span class="o">=</span> <span class="s">&quot;hello_cargo&quot;</span>
-<span class="c1"># 项目版本</span>
-<span class="n">version</span> <span class="o">=</span> <span class="s">&quot;0.1.0&quot;</span>
-<span class="c1"># 开发者信息</span>
-<span class="n">authors</span> <span class="o">=</span> <span class="k">[&quot;Dings &lt;deen.job@qq.com&gt;&quot;]</span>
-<span class="c1"># edition 字段表明代码应该使用哪个版本编译。如果该字段不存在，其默认为 2015 以提供后向兼容性</span>
-<span class="n">edition</span> <span class="o">=</span> <span class="s">&quot;2018&quot;</span>
+                  <h1>Vector容器类型</h1>
+                
+                <h2 id="vector">Vector<a class="headerlink" href="#vector" title="Permanent link">&para;</a></h2>
+<p>在<code>Rust</code>中的<code>Vector</code> 类型是一个动态数组<code>容器类型</code>，如果写过其他语言的话<code>Vector</code>和<code>Java</code>中<code>Vector</code>类的功能是很相似，也可以把它看作为<code>Go</code>中的切片类型。</p>
+<h2 id="_1">创建<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><code>Vector</code>是有大小限制的，在创建的时候可以通过<code>with_capacity(n)</code>来指定大小，也可以显示指定程序会自动推导出元素个数，如果当后面<code>Vector</code>添加新的元素的时候容量满了就会自动触发扩容机制。</p>
+<ol>
+<li>通过<code>new</code>创建，<code>push</code>方法会往尾巴添加元素值，<code>len</code>获取元素个数。</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 通过new创建</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">vector</span>:<span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span>::<span class="n">new</span><span class="p">();</span><span class="w"></span>
 
-<span class="c1"># See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="mi">10</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">vector</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">v</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-<span class="c1"># 项目依赖的相关配置</span>
-<span class="k">[dependencies]</span>
+<span class="w">    </span><span class="c1">// [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="n">vector</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">     </span><span class="c1">// `len` 方法获得一个 vector 的当前大小</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Vector size: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="p">.</span><span class="n">len</span><span class="p">());</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-</td></tr></table>
-<p><strong>相关命令</strong></p>
+<ol>
+<li>通过<code>with_capacity(n)</code>来指定容量。</li>
+</ol>
+<p><div class="highlight"><pre><span></span><code><span class="c1">// 指定了容量大小</span>
+<span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">vector_wcap</span>:<span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">usize</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span>::<span class="n">with_capacity</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..=</span><span class="mi">5</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">vector_wcap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">v</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// 看看什么时候触发扩容？？？</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">vector_wcap</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;index {}, Trigger expansion new len =  {}&quot;</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">vector_wcap</span><span class="p">.</span><span class="n">len</span><span class="p">())</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="n">vector_wcap</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+很明显在索引为<code>5</code>的时候触发了扩容。
+<div class="highlight"><pre><span></span><code><span class="n">index</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">Trigger</span><span class="w"> </span><span class="n">expansion</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="mi">6</span><span class="w"></span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">]</span><span class="w"></span>
+</code></pre></div></p>
+<h2 id="_2">修改和删除<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><code>Vector</code>是一个动态的数组类型那么就应该支持<code>修改和删除</code>等操作。<code>Vector</code>访问支持通过索引和<code>get(i)</code>方法进行操作。</p>
+<p><div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">vector</span>:<span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span>::<span class="n">new</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="mi">10</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">vector</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">v</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 通过索引访问</span>
+<span class="w">    </span><span class="n">vector</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">255</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// [0, 1, 2, 3, 255, 5, 6, 7, 8, 9]</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="n">vector</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+也可以通过<code>get</code>函数进行获取某一个下标元素的值，但是返回的是一个<code>Option&lt;T&gt;</code>的类型，如果没有值返回的是<code>None</code>，<code>Option&lt;T&gt;</code>类型<code>Rust</code>中的一个特殊的类型，后面文章深入。</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="c1">// index 4 value is Some(255)</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;index 4 value is {:?}&quot;</span><span class="p">,</span><span class="n">vector</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">vector</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nb">Some</span><span class="p">(</span><span class="n">third</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;The third element is {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">third</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="nb">None</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;There is no third element.&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>还有一种访问方式就是使用<code>pop</code>方法，返回最后一个元素并且在<code>vec</code>中删除该返回的元素。</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vector</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// pop return value is Some(9)</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;pop return value is {:?}&quot;</span><span class="p">,</span><span class="n">v</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p>删除元素则通过<code>remove(index)</code>进行删除元素。</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="c1">// 删除第一个元素</span>
+<span class="w">    </span><span class="n">vector</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// [0, 2, 3, 255, 5, 6, 7, 8]</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="n">vector</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<h2 id="_3">遍历<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>因为是可变的<code>vec</code>这里在<code>for</code>的时候也要加上<code>&amp;mut</code>然后进行遍历。
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">vector_wcap</span>:<span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">usize</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span>::<span class="n">with_capacity</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..=</span><span class="mi">5</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">vector_wcap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">v</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">vector_wcap</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;index {}, Trigger expansion new len =  {}&quot;</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">vector_wcap</span><span class="p">.</span><span class="n">len</span><span class="p">())</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="n">vector_wcap</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">arr</span>:<span class="p">[</span><span class="kt">usize</span><span class="p">;</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">10</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 可变引用</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">vector_wcap</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// 解引用</span>
+<span class="w">        </span><span class="n">arr</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">v</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">index</span><span class="o">+=</span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// </span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="n">arr</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></p>
+<h2 id="_4">小结<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><code>vector</code>也支持通过<code>vec![]</code>宏进行创建和使用，本篇就学习一下和总结了一下<code>vector</code>的<code>crud</code>操作!</p>
+<h2 id="_5">其他<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>cargo build</code>  构建了项目</li>
-<li><code>cargo run</code>    编译和运行</li>
-<li><code>cargo check</code>  快速检查代码确保其可以编译</li>
-<li><code>cargo build --release</code> 来优化编译项目</li>
+<li>https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=a7f387f27832208d3b2d0727f476447e</li>
 </ul>
-<p><img alt="相关截图" src="https://tva1.sinaimg.cn/large/008eGmZEgy1gmm4okc7g4j30vi0ew76r.jpg" /></p>
-<p>在你的<code>main.rs</code>写入代码</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// 我感觉你不是写，我估计你是复制粘贴😜</span>
-<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"> </span>
-</code></pre></div>
-</td></tr></table>
-<p>使用<code>cargo run</code>跑起来你的代码</p>
-<div class="highlight"><pre><span></span><code>Hello, world!
-</code></pre></div>
-<p><strong>到此为止，恭喜你写出来了第一个Rust程序！！牛批😜</strong></p>
                 
               
               
@@ -806,7 +887,7 @@ $ <span class="nb">cd</span> hello_cargo
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../environment/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../struct/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -815,25 +896,11 @@ $ <span class="nb">cd</span> hello_cargo
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                Rust 开发环境搭建
+                Rust 结构体
               </div>
             </div>
           </a>
         
-        
-          <a href="../scalar_type/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  下一页
-                </span>
-                Rust 数据类型
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
         
       </nav>
     </div>
