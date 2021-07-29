@@ -804,7 +804,7 @@
 <p><strong>为了方便表示本文后面的所有栈结构图中的每个格子都是8个字节 ，同时我们也假设push和pop指令每次操作8个字节</strong>。</p>
 <p>下图是一个大小为<code>80</code>个字节（图中每个格子是<code>8</code>个字节）的<code>栈</code>，地址范围是<code>0~79</code>。</p>
 <p><code>栈指针</code>指向栈顶的位置：</p>
-<p><img alt="stack" src="https://files.mdnice.com/user/8699/31e37834-6ce4-4bc2-a472-b590ee2cd45d.png" /></p>
+<p><img alt="stack" src="https://tva1.sinaimg.cn/large/008i3skNgy1gsxw94dx7sj30cy09eglm.jpg" /></p>
 <p><strong>后面提到的指令均是类似于C语言的伪代码，只是用来描述栈的变化过程。</strong></p>
 <p><strong>1. 压栈</strong></p>
 <p>压栈时把<code>栈指针</code>往<code>低地址</code>移动也就是减小栈指针，然后把数据写入到以<code>栈指针</code>开始的内存中。</p>
@@ -816,7 +816,7 @@
 <span class="o">*</span><span class="n">sp</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
 </code></pre></div>
 <p>由于我们假设push指令每次操作8个字节，所以第1条指令先把<code>sp</code>（栈指针）向低地址移动8个字。然后第2条指令再把数据写入到以<code>sp</code>开始的那8个字节的内存中。<code>*sp</code>表示的是<code>栈指针</code>所指向的那块内存空间，而不是<code>栈指针</code>本身。</p>
-<p><img alt="栈变化过程" src="https://files.mdnice.com/user/8699/b0df50e7-2619-4eac-b018-1ac9271adf17.png" /></p>
+<p><img alt="栈变化过程" src="https://tva1.sinaimg.cn/large/008i3skNgy1gsxw9w2x05j30p609ajrm.jpg" /></p>
 <p><strong>2. 出栈</strong></p>
 <p>出栈时先取出以<code>栈指针</code>开头的8个字节（我们假设pop每次操作8个字节）的数据，再把<code>栈指针</code>向高地址移动8个字节也就是增加栈指针。</p>
 <p>把压栈例子中<code>栈顶</code>的数据出栈至变量<code>rax</code>中，对应的指令：</p>
@@ -896,7 +896,7 @@
 <span class="n">error</span>: <span class="nc">aborting</span><span class="w"> </span><span class="n">due</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">previous</span><span class="w"> </span><span class="n">error</span><span class="w"></span>
 </code></pre></div>
 可以看到提示<code>move occurs because</code>发生了所有权转移，在后面就不能进行对<code>v</code>进行操作了，原因<code>String</code>是<code>reference semantic</code>，<code>String</code>在内存存储的布局如下：</p>
-<p><img alt="内存布局" src="https://files.mdnice.com/user/8699/9a3c29d5-3073-46a9-9e2c-53cf56f1da13.png" /></p>
+<p><img alt="内存布局" src="https://tva1.sinaimg.cn/large/008i3skNgy1gsxwazzoa0j60la0aoaa902.jpg" /></p>
 <p><code>String</code>的内存布局，它实际上由<code>3</code>部分组成，一个指向存放字符串内容的指针（<code>ptr</code>），一个长度（<code>len</code>）及一个容量（<code>capacity</code>），这部分的数据存放在了栈中，右侧显示了字符串存储在堆上的文本内容。</p>
 <p>上面的代码将<code>v</code>的所有权交给了<code>map</code>中了，此时左边部分的<code>v</code>就没有其所有权了，<code>v</code>会被废弃掉，如果在后面代码中进行操作则出<code>value borrowed here after move</code>。</p>
 <p>其他语言中接触过<code>shallow copy</code>和深度拷贝<code>deep copy</code>这两个术语，那么你也许会将这里复制指针，长度以及容量字段行为视作浅度拷贝，但由于<code>Rust</code>同时使第一个变量无效了，所以使用了新的术语移动<code>move</code>来描述这一行为，而不再使用浅度拷贝，同时指向<code>heap</code>上的数据，在<code>rust</code>中是不被允许的！！</p>
