@@ -56,7 +56,7 @@ nav:
                   - "Rust 枚举使用": docs/struct.md
                   - "Rust 结构体": docs/struct.md
                   - "Vector容器类型": docs/vector.md
-                  - "VecQueue容器类型": docs/vecdeque.md
+                  - "VecDeque容器类型": docs/vecdeque.md
                   - "HashMap容器类型": docs/hashmap.md
         - 高级部分:
                   - "Rust ownership": ownership.md
