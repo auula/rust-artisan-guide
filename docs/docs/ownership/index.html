@@ -1,0 +1,1023 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="Jarvib Ding">
+      
+      
+      <link rel="shortcut icon" href="../../images/rust-logo.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.6">
+    
+    
+      
+        <title>Rust ownership - Rust中文宝典</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/css/theme.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="black">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rustownership" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+
+
+<!-- Application header -->
+<header class="md-header" data-md-component="header">
+
+  <!-- Top-level navigation -->
+  <nav class="md-header-nav md-grid" aria-label="Header">
+
+    <!-- Link to home -->
+    <a
+      href="../.."
+      title="Rust中文宝典"
+      class="md-header-nav__button md-logo"
+      aria-label="Rust中文宝典"
+    >
+      
+  <img src="/images/rust-logo-white.png" alt="logo">
+
+    </a>
+
+    <!-- Button to open drawer -->
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+
+    <!-- Header title -->
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Rust中文宝典
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              Rust ownership
+            
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button to open search modal -->
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+
+      <!-- Search interface -->
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    <!-- Repository information -->
+    
+      <a href="javascript:changeTheme();"  >
+        <div class="md-source__icon md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book-half" viewBox="0 0 16 16"><path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"></path></svg>
+        </div>
+      </a>
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/higker/learn-rust/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    higker/learn-rust
+  </div>
+</a>
+      </div>
+      
+    
+
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Rust中文宝典" class="md-nav__button md-logo" aria-label="Rust中文宝典">
+      
+  <img src="/images/rust-logo-white.png" alt="logo">
+
+    </a>
+    Rust中文宝典
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/higker/learn-rust/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    higker/learn-rust
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        关于本站
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
+        基础知识
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="基础知识" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          基础知识
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        Rust 介绍
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environment/" class="md-nav__link">
+        Rust 开发环境搭建
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hello_world/" class="md-nav__link">
+        Rust 您好世界
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scalar_type/" class="md-nav__link">
+        Rust 数据类型
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variable/" class="md-nav__link">
+        Rust 变量定义
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../string_type/" class="md-nav__link">
+        Rust 字符串
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator/" class="md-nav__link">
+        Rust 运算符
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../condition/" class="md-nav__link">
+        Rust 条件判断
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../loop_for/" class="md-nav__link">
+        Rust 循环语句
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../function/" class="md-nav__link">
+        Rust 函数定义
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tuple/" class="md-nav__link">
+        Rust 元组Tuple
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../array/" class="md-nav__link">
+        Rust 数组的使用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../struct/" class="md-nav__link">
+        Rust 枚举使用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../struct/" class="md-nav__link">
+        Rust 结构体
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vector/" class="md-nav__link">
+        Vector容器类型
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vecdeque/" class="md-nav__link">
+        VecDeque容器类型
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hashmap/" class="md-nav__link">
+        HashMap容器类型
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      
+      <label class="md-nav__link" for="nav-3">
+        高级部分
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="高级部分" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          高级部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Rust ownership
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Rust ownership
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rustownership" class="md-nav__link">
+    Rust入门到劝退？？我在学ownership!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    不同的管理方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    堆栈
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    函数栈帧
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust" class="md-nav__link">
+    Rust 所有权
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    补充
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules.md" class="md-nav__link">
+        Rust 模块Modules
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../collection.md" class="md-nav__link">
+        Rust Collection
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../error.md" class="md-nav__link">
+        Rust 错误处理
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../generosity.md" class="md-nav__link">
+        Rust 泛型使用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../w_r_io.md" class="md-nav__link">
+        Rust I/O操作
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo.md" class="md-nav__link">
+        Rust 包管理Cargo
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iterator.md" class="md-nav__link">
+        Rust 迭代器 Iterator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../closure.md" class="md-nav__link">
+        Rust 闭包 Closure
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pointer.md" class="md-nav__link">
+        Rust 智能指针
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thread.md" class="md-nav__link">
+        Rust 并发编程
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rustownership" class="md-nav__link">
+    Rust入门到劝退？？我在学ownership!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    不同的管理方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    堆栈
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    函数栈帧
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust" class="md-nav__link">
+    Rust 所有权
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    补充
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/higker/learn-rust/edit/master/docs/docs/ownership.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>Rust ownership</h1>
+                
+                <h3 id="rustownership">Rust入门到劝退？？我在学<code>ownership</code>!<a class="headerlink" href="#rustownership" title="Permanent link">&para;</a></h3>
+<p>在说<code>Rust</code>中的<code>ownership</code>之前那就要说说计算机内存和程序在运行的时候是怎么管理内存的，如果不把这些搞清楚，就去写一些<code>ownership</code>的文章我个人感觉简直就是扯淡。如果能将语言分类的话可以按照<code>解释型</code>和<code>编译型</code>或者看他们各自的内存模型来进行分类，如果要按照内存的管理方式的话，听过一句话：<code>汇编和C、C++...</code>才算一门真正意义的编程语言，有<code>GC</code>的和<code>脚本语言</code>只是帮助了初级程序员更容易写程序，加速了内卷罢了（各位不喜勿喷哦😯）。</p>
+<h3 id="_1">不同的管理方式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>内存管理的方式有很多种例如<code>JVM</code>带<code>GC</code>的，<code>Swift</code>中<code>ARC</code>的...... </p>
+<p><code>Java</code>众所周知，<code>JVM</code> 虚拟机有自动内存管理机制，如果出现内存泄漏和溢出方面的问题，排查错误就必须要了解虚拟机是怎样使用内存的，内存分配的所有内容都是由一些称为垃圾收集的<code>process</code>处理的也称之为<code>garbage collection process</code>，垃圾回收♻️不是这篇文章的重点，如果你感兴趣可以看本文后面<code>Brian Goetz</code>的文章链接，我继续写其他的了。</p>
+<p><img alt="JVM内存布局" src="https://tva1.sinaimg.cn/large/008i3skNgy1gstf5rkpm8j30yg0g7775.jpg" /></p>
+<p>另外一种就是<code>swift</code>中使用的<code>Automatic Reference Counting</code>，自动引用计数来跟踪和管理程序的内存使用情况，每次创建类的新实例时，<code>ARC</code> 都会分配一块内存来存储有关该实例的信息。该内存保存有关实例类型的信息，以及与该实例相关联的任何存储属性的值，只有引用类型变量所引用的对象才需要使用引用计数器进行管理，对于枚举、结构体等，他们都是值类型的，(会发现和<code>Rust</code>中的<code>value semantic</code>和<code>reference semantic</code>有点类似)，因此不需要使用引用计数进行管理。</p>
+<h3 id="_2">堆栈<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>如果连这两种数据结构都不太熟悉，去扯内存管理，我个人觉得简直就是™在扯淡。</p>
+<blockquote>
+<p>操作系统会为<code>进程</code>（正在运行的应用程序）分配<code>内存空间</code>用于存放程序在执行过程中需要的代码和数据。根据内存的使用方式不同，会把内存划分成几个具有不同功能的区域。其中一块区域叫做<code>堆栈</code>（也被称为栈），它和数据结构中的栈一样具有<code>后进先出</code>的性质。<code>堆栈</code>用于记录函数在调用过程中产生的信息，比如函数局部变量和参数等信息。本文后面提到的<code>栈</code>均指的是内存中的<code>堆栈</code>。</p>
+</blockquote>
+<p>CPU提供了对栈内存进行<code>压栈</code>（<code>push</code>）和<code>出栈</code>（<code>pop</code>）的指令，同时还有一个叫做<code>栈指针</code>（<code>sp</code>）的寄存器用来保存<code>栈顶</code>位置的<code>内存地址</code>。<code>栈内存</code>是从<code>高地址</code>向<code>低地址</code>空间发展，这一点跟正常的思维习惯有点不一样，也就是说当你向<code>栈</code>中<code>push</code>一个新的数据时，栈的地址会变小。</p>
+<p><strong>为了方便表示本文后面的所有栈结构图中的每个格子都是8个字节 ，同时我们也假设push和pop指令每次操作8个字节</strong>。</p>
+<p>下图是一个大小为<code>80</code>个字节（图中每个格子是<code>8</code>个字节）的<code>栈</code>，地址范围是<code>0~79</code>。</p>
+<p><code>栈指针</code>指向栈顶的位置：</p>
+<p><img alt="stack" src="https://files.mdnice.com/user/8699/31e37834-6ce4-4bc2-a472-b590ee2cd45d.png" /></p>
+<p><strong>后面提到的指令均是类似于C语言的伪代码，只是用来描述栈的变化过程。</strong></p>
+<p><strong>1. 压栈</strong></p>
+<p>压栈时把<code>栈指针</code>往<code>低地址</code>移动也就是减小栈指针，然后把数据写入到以<code>栈指针</code>开始的内存中。</p>
+<p>例如要把数值<code>123</code>压入到栈中，对应的指令就是：</p>
+<div class="highlight"><pre><span></span><code><span class="n">push</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
+</code></pre></div>
+<p>它的效果等价于下面这两条指令：</p>
+<div class="highlight"><pre><span></span><code><span class="n">sp</span> <span class="o">=</span> <span class="n">sp</span> <span class="o">-</span> <span class="mi">8</span><span class="p">;</span>
+<span class="o">*</span><span class="n">sp</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+</code></pre></div>
+<p>由于我们假设push指令每次操作8个字节，所以第1条指令先把<code>sp</code>（栈指针）向低地址移动8个字。然后第2条指令再把数据写入到以<code>sp</code>开始的那8个字节的内存中。<code>*sp</code>表示的是<code>栈指针</code>所指向的那块内存空间，而不是<code>栈指针</code>本身。</p>
+<p><img alt="栈变化过程" src="https://files.mdnice.com/user/8699/b0df50e7-2619-4eac-b018-1ac9271adf17.png" /></p>
+<p><strong>2. 出栈</strong></p>
+<p>出栈时先取出以<code>栈指针</code>开头的8个字节（我们假设pop每次操作8个字节）的数据，再把<code>栈指针</code>向高地址移动8个字节也就是增加栈指针。</p>
+<p>把压栈例子中<code>栈顶</code>的数据出栈至变量<code>rax</code>中，对应的指令：</p>
+<div class="highlight"><pre><span></span><code><span class="n">pop</span><span class="p">(</span><span class="n">rax</span><span class="p">);</span>
+</code></pre></div>
+<p>它的效果等价于下面这两条指令：</p>
+<div class="highlight"><pre><span></span><code><span class="n">rax</span> <span class="o">=</span> <span class="o">*</span><span class="n">sp</span><span class="p">;</span>
+<span class="n">sp</span> <span class="o">=</span> <span class="n">sp</span> <span class="o">+</span> <span class="mi">8</span><span class="p">;</span>
+</code></pre></div>
+<p>先把以<code>栈指针</code>开始的<code>8</code>个字节的数据放入变量<code>rax</code>中，由于压栈例子中压入的是<code>123</code>，所以此时出栈的数据也是<code>123</code>，最后把<code>栈指针</code>向高地址移动<code>8</code>个字节。</p>
+<p><img alt="栈变化过程" src="https://tva1.sinaimg.cn/large/008i3skNgy1gstgrhktm5j30q709a74l.jpg" /></p>
+<h3 id="_3">函数栈帧<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>当一个函数在运行时，需要为它在<code>堆栈</code>中创建一个栈帧（<code>stack frame</code>）用来记录运行时产生的相关信息，因此每个函数在执行前都会创建一个栈帧，在它返回时会销毁该栈帧。</p>
+<p><img alt="stack frame准确来说应该是call stack" src="https://tva1.sinaimg.cn/large/008i3skNgy1gqrl88ooaej30sz0hj75z.jpg" /></p>
+<p>通常用一个叫做栈基址（<code>bp</code>）的寄存器来保存正在运行函数栈帧的开始地址，由于栈指针（<code>sp</code>）始终保存的是栈顶的地址，所以栈指针保存的也就是正在运行函数栈帧的结束地址。</p>
+<p>销毁时先把栈指针（<code>sp</code>）移动到此时栈基址（<code>bp</code>）的位置，此时栈指针和栈基址都指向同样的位置。</p>
+<p><img alt="销毁栈帧" src="https://tva1.sinaimg.cn/large/008i3skNgy1gqrlmmv9i3j30mc0ait94.jpg" /></p>
+<p>现在栈顶刚好是我们在创建栈帧时保存的调用者栈帧的栈基址，现在把它出栈至栈基址（<code>bp</code>），得到下图中的栈结构：</p>
+<p><img alt="" src="https://tva1.sinaimg.cn/large/008i3skNgy1gsth1wvtw0j307c09a3yf.jpg" /></p>
+<p><img alt="" src="https://files.mdnice.com/user/8699/fffe92f6-6509-4ad7-a7ca-ec99d8c23cba.png" /></p>
+<p><code>被调用者</code>的<code>栈帧</code>已经被销毁空间得到释放，但是函数的返回步骤并没有完，调用者的栈帧中还保存者返回地址，那么如果分配在<code>栈</code>是的零时数据就会被一起销毁，那在写的程序的时候程序员就要自己管理内存分配了，我变得有点担心，处理记忆管理的责任是否应该压在我身上？</p>
+<h3 id="rust">Rust 所有权<a class="headerlink" href="#rust" title="Permanent link">&para;</a></h3>
+<p><code>所有权</code>可以说是<code>Rust</code>中<code>核心特性</code>，有了<code>所有权概念</code>才能够使的<code>Rust</code>能在没有垃圾回收机制的前提下保障内存安全因此，正确地理解所有权概念及其在<code>Rust</code>中的实现方式，对于所有<code>Rust</code>开发者来说都是非常重要的。</p>
+<p>在我们写的代码的编译到二进制机器码的时候，一些数据的大小都是已经固定的会被分配在栈上，栈的特性就是<code>FILO</code>，数据存储速度相比堆来说要快的多。</p>
+<p>堆存储的数据是程序在编译的时候不能确定的，只能在运行时得以确定，<code>Rust</code>所有权要干的事情就是跟踪这些数据的动向或者叫寿命吧，然后清理的早了就出问题，如果不清理或者数据重复多分占内存...</p>
+<p>写<code>Rust</code>程序要记住<code>3点</code>就是:</p>
+<ol>
+<li><code>Rust</code>中的每个值都有一个称为其所有者的变量名。</li>
+<li>同一时间只能有一个所有者。</li>
+<li>当所有者超出作用域时，该值将被删除。</li>
+</ol>
+<p>怎么证明第一句话？可以把<code>Rust</code>中的变量声明看做为申请一块内存空间绑定到一个变量名上，如下图：</p>
+<p><img alt="let 绑定变量" src="https://tva1.sinaimg.cn/large/008i3skNgy1gsti3j6wcdj30hj0hn0tc.jpg" /></p>
+<p>而这块内存空间的所有权就属于这个变量，默认这块内存就是来存放变量的数据的，只能读。</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">(){</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="n">var</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="c1">// 作用域到这里结束，变量var再次不可用</span>
+</code></pre></div>
+所有权在作用域结束就会被删除，这里的变量<code>var</code>指向了一个字符串，它的值被硬编码到了当前的程序中，变量从声明的位置开始直到当前作用域结束都是有效的。</p>
+<p>而如果修改一下代码将类型改为<code>String</code>这个时候问题就出现了。</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">collections</span>::<span class="n">HashMap</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;bar&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w">  </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span>::<span class="n">new</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">map</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">v</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;bar&quot;</span><span class="p">,</span><span class="s">&quot;BAR&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="n">v</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+编译运行一下提示：</p>
+<p><div class="highlight"><pre><span></span><code><span class="w">   </span><span class="n">Compiling</span><span class="w"> </span><span class="n">playground</span><span class="w"> </span><span class="n">v0</span><span class="p">.</span><span class="mf">0.1</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="n">playground</span><span class="p">)</span><span class="w"></span>
+<span class="n">error</span><span class="p">[</span><span class="n">E0382</span><span class="p">]</span>: <span class="nc">borrow</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">moved</span><span class="w"> </span><span class="n">value</span>: <span class="err">`</span><span class="n">v</span><span class="err">`</span><span class="w"></span>
+<span class="w">    </span><span class="o">-</span>-&gt; <span class="nc">src</span><span class="o">/</span><span class="n">main</span><span class="p">.</span><span class="n">rs</span>:<span class="mi">35</span>:<span class="mi">5</span><span class="w"></span>
+<span class="w">     </span><span class="o">|</span><span class="w"></span>
+<span class="mi">29</span><span class="w">   </span><span class="o">|</span><span class="w">     </span><span class="kd">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;bar&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">     </span><span class="o">|</span><span class="w">         </span><span class="o">-</span><span class="w"> </span><span class="k">move</span><span class="w"> </span><span class="n">occurs</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="err">`</span><span class="n">v</span><span class="err">`</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="k">type</span> <span class="err">`</span><span class="nb">String</span><span class="err">`</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">implement</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="err">`</span><span class="nb">Copy</span><span class="err">`</span><span class="w"> </span><span class="k">trait</span><span class="w"></span>
+<span class="o">..</span><span class="p">.</span><span class="w"></span>
+<span class="mi">33</span><span class="w">   </span><span class="o">|</span><span class="w">     </span><span class="n">map</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="p">);</span><span class="w"></span>
+<span class="w">     </span><span class="o">|</span><span class="w">                  </span><span class="o">-</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">moved</span><span class="w"> </span><span class="n">here</span><span class="w"></span>
+<span class="mi">34</span><span class="w">   </span><span class="o">|</span><span class="w">     </span>
+<span class="mi">35</span><span class="w">   </span><span class="o">|</span><span class="w">     </span><span class="n">v</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;bar&quot;</span><span class="p">,</span><span class="s">&quot;BAR&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">     </span><span class="o">|</span><span class="w">     </span><span class="o">^^^^^^^^^^^^^^^^^^^^^^</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">borrowed</span><span class="w"> </span><span class="n">here</span><span class="w"> </span><span class="n">after</span><span class="w"> </span><span class="k">move</span><span class="w"></span>
+<span class="w">     </span><span class="o">|</span><span class="w"></span>
+<span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">note</span>: <span class="nc">borrow</span><span class="w"> </span><span class="n">occurs</span><span class="w"> </span><span class="n">due</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">deref</span><span class="w"> </span><span class="n">coercion</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="err">`</span><span class="kt">str</span><span class="err">`</span><span class="w"></span>
+<span class="n">note</span>: <span class="nc">deref</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="n">here</span><span class="w"></span>
+
+<span class="n">error</span>: <span class="nc">aborting</span><span class="w"> </span><span class="n">due</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">previous</span><span class="w"> </span><span class="n">error</span><span class="w"></span>
+</code></pre></div>
+可以看到提示<code>move occurs because</code>发生了所有权转移，在后面就不能进行对<code>v</code>进行操作了，原因<code>String</code>是<code>reference semantic</code>，<code>String</code>在内存存储的布局如下：</p>
+<p><img alt="内存布局" src="https://files.mdnice.com/user/8699/9a3c29d5-3073-46a9-9e2c-53cf56f1da13.png" /></p>
+<p><code>String</code>的内存布局，它实际上由<code>3</code>部分组成，一个指向存放字符串内容的指针（<code>ptr</code>），一个长度（<code>len</code>）及一个容量（<code>capacity</code>），这部分的数据存放在了栈中，右侧显示了字符串存储在堆上的文本内容。</p>
+<p>上面的代码将<code>v</code>的所有权交给了<code>map</code>中了，此时左边部分的<code>v</code>就没有其所有权了，<code>v</code>会被废弃掉，如果在后面代码中进行操作则出<code>value borrowed here after move</code>。</p>
+<p>其他语言中接触过<code>shallow copy</code>和深度拷贝<code>deep copy</code>这两个术语，那么你也许会将这里复制指针，长度以及容量字段行为视作浅度拷贝，但由于<code>Rust</code>同时使第一个变量无效了，所以使用了新的术语移动<code>move</code>来描述这一行为，而不再使用浅度拷贝，同时指向<code>heap</code>上的数据，在<code>rust</code>中是不被允许的！！</p>
+<p>那么问题来了这么搞？有经验的老司机可能想着<code>deep copy</code>来解决问题，那这样带来的过多的内存开销，可能还会出现其他问题。</p>
+<p>🤔 : 那有木有好的解决办法？？？解决办法是有的<code>引用与借用</code>新的概念！本文先写到这！</p>
+<h2 id="_4">补充<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>JSR 133 JMM:</strong> http://www.cs.umd.edu/~pugh/java/memoryModel/jsr-133-faq.html</li>
+<li><strong>ARC:</strong>  https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../hashmap/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                HashMap容器类型
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 Jarvib Ding
+          </div>
+        
+        <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/JarvibDing" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://rustmagazine.github.io/rust_magazine_2021" target="_blank" rel="noopener" title="rustmagazine.github.io" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16"><path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/higker/learn-rust" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16"><path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.122C.002 7.343.01 6.6.064 5.78l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/higker" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.53cc9318.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e9c9f54f.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      
+        <script src="../../assets/js/theme.js"></script>
+      
+    
+  </body>
+</html>

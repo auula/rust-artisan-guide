@@ -59,7 +59,7 @@ nav:
                   - "VecDeque容器类型": docs/vecdeque.md
                   - "HashMap容器类型": docs/hashmap.md
         - 高级部分:
-                  - "Rust ownership": ownership.md
+                  - "Rust ownership": docs/ownership.md
                   - "Rust 模块Modules": modules.md
                   - "Rust Collection": collection.md
                   - "Rust 错误处理": error.md
