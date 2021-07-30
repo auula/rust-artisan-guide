@@ -751,7 +751,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/higker/learn-rust/edit/master/docs/docs/advanced.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/higker/learn-rust/edit/master/docs/docs/higher.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -759,7 +759,7 @@
                   <h1>Rust高阶函数</h1>
                 
                 <h2 id="_1">高阶函数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>在函数式编程里面有一个编程方式叫作<code>advanced function</code>，函数也可以看作为一个一种类型。函数的参数和返回值类型可以是函数，高阶函数本身就是一个函数指针，也就是函数在内存的地址，然后通过地址进行调用。</p>
+<p>在函数式编程里面有一个编程方式叫作<code>Higher-order function</code>，函数也可以看作为一个一种类型。函数的参数和返回值类型可以是函数，高阶函数本身就是一个函数指针，也就是函数在内存的地址，然后通过地址进行调用。</p>
 <h2 id="rust"><code>Rust</code>中的高阶函数<a class="headerlink" href="#rust" title="Permanent link">&para;</a></h2>
 <p>可以使用<code>type</code>关键字定义一个类型别名，<code>fn(i32, i32) -&gt; i32</code>参数和返回值都是<code>i32</code>类型，并定义了一个<code>math(op: MathOp, x: i32, y: i32) -&gt; i32</code>函数，参数和返回值都是<code>i32</code>类型，然后<code>add</code> 和<code>sub</code>的函数签名和<code>MathOp</code> 类型一样即可使用，而<code>let hi: fn(&amp;str) = say_hi;</code>是把一个函数绑定到一个变量上，方便后面进行调用。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
