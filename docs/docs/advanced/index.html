@@ -16,7 +16,7 @@
     
     
       
-        <title>Rust 变量定义 - Rust中文宝典</title>
+        <title>高阶函数 - Rust中文宝典</title>
       
     
     
@@ -111,7 +111,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Rust 变量定义
+              高阶函数
             
           </span>
         </div>
@@ -314,94 +314,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Rust 变量定义
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../variable/" class="md-nav__link">
         Rust 变量定义
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    概 述
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    概 念
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    不可变的变量
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    可变变量
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#shadowing" class="md-nav__link">
-    重影 &amp; Shadowing
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    常量与不可变变量的区别
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    小 结
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    相关资料
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -553,11 +470,59 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../advanced/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          高阶函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         高阶函数
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    高阶函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust" class="md-nav__link">
+    Rust中的高阶函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    闭包
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -755,56 +720,21 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    概 述
+    高阶函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust" class="md-nav__link">
+    Rust中的高阶函数
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    概 念
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    不可变的变量
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    可变变量
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#shadowing" class="md-nav__link">
-    重影 &amp; Shadowing
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    常量与不可变变量的区别
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    小 结
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    相关资料
+    闭包
   </a>
   
 </li>
@@ -821,49 +751,18 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/higker/learn-rust/edit/master/docs/docs/variable.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/higker/learn-rust/edit/master/docs/docs/advanced.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>Rust 变量定义</h1>
+                  <h1>高阶函数</h1>
                 
-                <h2 id="_1">概 述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>每个编程语言都离开不<code>变量</code>这个概念，<code>Rust</code>也一样，今天就说说<code>Rust</code>中的变量。</p>
-</blockquote>
-<h2 id="_2">概 念<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<ul>
-<li>不可变的变量</li>
-<li>可变的变量</li>
-<li>变量的重影<code>Shadowing</code></li>
-</ul>
-<blockquote>
-<p><code>Rust</code>首先是一门强类型的语言并且具备自动判断变量类型的能力。有了这种能力之后，使得开发者在编码的过程中会产生一种自己在使用一门类似于<code>JavaScript</code>弱类型语言的假想。</p>
-</blockquote>
-<p><img alt="wtf ？？？" src="https://tva1.sinaimg.cn/large/008eGmZEgy1gmyzfrz1g1j30g10giq9j.jpg" /></p>
-<p><strong>当然<code>Rust</code>不是这样的，<code>Rust</code>强类型的!<code>Rust</code>强类型的!，<code>Rust</code>强类型的! 说3遍，如果是上面👆图片这样我不会入坑的。。</strong> <a href="https://chromium.googlesource.com/v8/v8.git">感兴趣的可以去看看<code>v8</code>引擎。。</a></p>
-<h2 id="_3">不可变的变量<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>在<code>Rust</code>中声明一个变量要使用<code>let</code>关键字，看下面代码</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">(){</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 通过let 声明的变量是不可变的</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;variable&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;这是一个不可变的变量: {}&quot;</span><span class="p">,</span><span class="n">v</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="c1">//unexpected token</span>
-<span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;var 2&quot;</span><span class="w"> </span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="n">v</span><span class="p">)</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
-<p>编译这段代码编译器会报错:</p>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+                <h2 id="_1">高阶函数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在函数式编程里面有一个编程方式叫作<code>advanced function</code>，函数也可以看作为一个一种类型。函数的参数和返回值类型可以是函数，高阶函数本身就是一个函数指针，也就是函数在内存的地址，然后通过地址进行调用。</p>
+<h2 id="rust"><code>Rust</code>中的高阶函数<a class="headerlink" href="#rust" title="Permanent link">&para;</a></h2>
+<p>可以使用<code>type</code>关键字定义一个类型别名，<code>fn(i32, i32) -&gt; i32</code>参数和返回值都是<code>i32</code>类型，并定义了一个<code>math(op: MathOp, x: i32, y: i32) -&gt; i32</code>函数，参数和返回值都是<code>i32</code>类型，然后<code>add</code> 和<code>sub</code>的函数签名和<code>MathOp</code> 类型一样即可使用，而<code>let hi: fn(&amp;str) = say_hi;</code>是把一个函数绑定到一个变量上，方便后面进行调用。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -877,119 +776,70 @@
 12
 13
 14
-15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>error<span class="o">[</span>E0384<span class="o">]</span>: cannot assign twice to immutable variable <span class="sb">`</span>v<span class="sb">`</span>
-  --&gt; variable.rs:13:5
-   <span class="p">|</span>
-<span class="hll"><span class="m">10</span> <span class="p">|</span>     <span class="nb">let</span> <span class="nv">v</span> <span class="o">=</span> <span class="s2">&quot;variable&quot;</span><span class="p">;</span>
-</span>   <span class="p">|</span>         -
-   <span class="p">|</span>         <span class="p">|</span>
-   <span class="p">|</span>         first assignment to <span class="sb">`</span>v<span class="sb">`</span>
-   <span class="p">|</span>         help: make this binding mutable: <span class="sb">`</span>mut v<span class="sb">`</span>
-...
-<span class="m">13</span> <span class="p">|</span>     <span class="nv">v</span> <span class="o">=</span> <span class="s2">&quot;var 2&quot;</span> <span class="p">;</span>
-   <span class="p">|</span>     ^^^^^^^^^^^ cannot assign twice to immutable variable
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// type定义别名</span>
+<span class="k">type</span> <span class="nc">MathOp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span><span class="p">;</span><span class="w"></span>
 
-error: aborting due to previous error
 
-For more information about this error, try <span class="sb">`</span>rustc --explain E0384<span class="sb">`</span>.
-</code></pre></div>
-</td></tr></table>
-<strong>关键消息:</strong> 不能两次分配不变的变量! ❎错误在于<code>v</code>这个变量是不可变的变量，不能进行第二次进行赋值修改。由于个人之前写过<code>Java</code>和<code>Go</code>感觉有点类似于<code>Java</code>语言中的<code>final</code>关键字修饰的变量，看这句话的之前你得先了解<code>java</code>相关的编译机制。如果我们编写的程序的一部分在假设值永远不会改变的情况下运行，而我们代码的另一部分在改变该值，那么代码的第一部分可能就不会按照设计的意图去运转，由于这种原因造成的错误很难在事后找到。这是 <code>Rust</code> 语言设计这种机制的原因。</p>
-<blockquote>
-<p>这就牵扯到了 <code>Rust</code> 语言为了高并发安全而做的设计：在语言层面尽量少的让变量的值可以改变。所以 <code>v</code> 的值不可变。</p>
-</blockquote>
-<h2 id="_4">可变变量<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>如果想声明一个可被修改的变量这时我们就使用<code>mut</code>关键字:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="w">    </span><span class="c1">// 通过mut关键字声明的变量可以被修改</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="c1">//println!(&quot;m assigned value is {}&quot;,m);</span>
-<span class="w">    </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">666</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;这是一个可变变量: {}&quot;</span><span class="p">,</span><span class="n">m</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// OUTPUT： 789</span>
-</code></pre></div>
-</td></tr></table>
-<h2 id="shadowing">重影 &amp; Shadowing<a class="headerlink" href="#shadowing" title="Permanent link">&para;</a></h2>
-<p>看看代码，按照之前我说的<code>let</code>声明的变量是不可变的，下面代码会编译出错吗？？？</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;s value is {}&quot;</span><span class="p">,</span><span class="n">s</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;s value assigned value is {}&quot;</span><span class="p">,</span><span class="n">s</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
-<p><strong>答案是:</strong> 可以✅</p>
-<p>编译代码编译器没有报错，很多人就奇怪了，<code>let</code>声明的变量不是不可变吗？
-对的，<code>let</code>关键字重新声明的相同变量的名的变量会砍掉之前的变量
-并且如果需要之前变量的值就会拿到值然后在删除掉，重新分配，可以通过查看地址查看变化。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="w">    </span><span class="c1">// 可以通过查看内存地址就查看</span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;old s pointer is {:p}&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">s</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;new s pointer is {:p}&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">s</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
-<blockquote>
-<p>重影的概念与其他面向对象语言里的"重写"（<code>Override</code>）或"重载"（<code>Overload</code>）是不一样的，重影就是指变量的名称可以被重新使用的机制。</p>
-</blockquote>
-<h2 id="_5">常量与不可变变量的区别<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>在<code>Rust</code>想声明常量可以使用<code>const</code>关键字:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">MY_AGE</span>:<span class="kt">u64</span> <span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;my age is {}&quot;</span><span class="p">,</span><span class="n">MY_AGE</span><span class="p">)</span><span class="w"> </span><span class="c1">// 22</span>
-</code></pre></div>
-</td></tr></table>
-<ul>
-<li>
-<p>常量名的命名规则可变量的命名规则一样，但常量名一般都是<code>大写</code>字母。</p>
-</li>
-<li>
-<p>定义常量时必须指定数据类型，而定义变量时数据类型可以省略。</p>
-</li>
-<li>
-<p>虽然声明变量时使用 <code>let</code> 关键字也会导致 变量不可以重新赋值，但我们可以加上 <code>mut</code> 关键字来让变量可以被重新赋值。然而常量却没有这种机制，常量一旦定义就永远不可变更和重新赋值。</p>
-</li>
-<li>
-<p>常量只能 被赋值为 <code>常量表达式/数学表达式</code>，不能是 <code>函数返回值</code> 或者其它只有在运行时才能确定的值。</p>
-</li>
-<li>
-<p>这是因为 常量 只是一个符号，会在 编译时 替换为具体的值，这个有点类似于 <code>C</code> 语言中的 <code>#define</code> 定义的符号。</p>
-</li>
-<li>
-<p>常量与变量的另一个不同点是：<code>常量不能被屏蔽/遮挡/重影，也不能被重复定义</code>。</p>
-</li>
-</ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="k">const</span><span class="w"> </span><span class="n">NAME</span>:<span class="kp">&amp;</span><span class="kt">str</span> <span class="o">=</span><span class="w"> </span><span class="s">&quot;Jarvib Ding&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="k">const</span><span class="w"> </span><span class="n">NAME</span>:<span class="kt">usize</span> <span class="o">=</span><span class="w"> </span><span class="n">NAME</span><span class="p">.</span><span class="n">len</span><span class="p">();</span><span class="w"> </span>
-<span class="w">   </span><span class="c1">//Error : `NAME` already defined  已经被定义了 不能重复</span>
-<span class="w">   </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;name: {}&quot;</span><span class="p">,</span><span class="n">NAME</span><span class="p">);</span><span class="w"></span>
+<span class="k">fn</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span>: <span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">y</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">fn</span> <span class="nf">sub</span><span class="p">(</span><span class="n">x</span>: <span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">y</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// 高阶函数</span>
+<span class="k">fn</span> <span class="nf">math</span><span class="p">(</span><span class="n">op</span>: <span class="nc">MathOp</span><span class="p">,</span><span class="w"> </span><span class="n">x</span>: <span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">y</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">op</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">fn</span> <span class="nf">say_hi</span><span class="p">(</span><span class="n">name</span>: <span class="kp">&amp;</span><span class="kt">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Hello {}！&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// rust 函数式编程</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">hi</span>: <span class="nc">fn</span><span class="p">(</span><span class="o">&amp;</span><span class="kt">str</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">say_hi</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">hi</span><span class="p">(</span><span class="s">&quot;Jarvib&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">math</span><span class="p">(</span><span class="n">add</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">math</span><span class="p">(</span><span class="n">sub</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">));</span><span class="w"></span>
+
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="_6">小 结<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<p>通过这几段代码例子就能看出来<code>Rust</code>设计者对程序安全的重视，还有很多人说<code>Rust</code>对程序员要求很高，就这么简单几个例子，新手上来估计要和编译器斗争几把，才能成功编译。在你和编译器斗争的时候你已经得到了进化了，好了，以上是我个人学习总结，有问题<code>call</code>我在<code>github</code>上联系我，后面如果有时间的话，文章还会继续跟进。</p>
-<h2 id="_7">相关资料<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<ul>
-<li>https://chromium.googlesource.com/v8/v8.git</li>
-<li>https://github.com/higker/learning-rust-zh</li>
-<li>https://cloud.tencent.com/developer/article/1379380</li>
-</ul>
+<h2 id="_2">闭包<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>闭包可以捕获作用域上的其他变量，在闭包函数体里使用！下面的<code>|x| x/div_num</code>就是一个闭包的函数体，<code>||</code>是函数类型，<code>x/div_num</code>是函数体。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">div_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 闭包</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">div</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">|</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="o">/</span><span class="n">div_num</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;10 / 2 = {}&quot;</span><span class="p">,</span><span class="n">div</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span><span class="w"> </span>
+<span class="p">}</span><span class="w">   </span>
+</code></pre></div>
+</td></tr></table>
                 
               
               
@@ -1008,7 +858,7 @@ For more information about this error, try <span class="sb">`</span>rustc --expl
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../scalar_type/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../hashmap/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1017,19 +867,19 @@ For more information about this error, try <span class="sb">`</span>rustc --expl
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                Rust 数据类型
+                HashMap容器类型
               </div>
             </div>
           </a>
         
         
-          <a href="../string_type/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ownership/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                Rust 字符串
+                Rust ownership
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
