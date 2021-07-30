@@ -52,3 +52,6 @@ fn main() {
     println!("10 / 2 = {}",div(10)); 
 }   
 ```
+
+## 其他
+- [https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=d7f8c04a449bb316eefafd27db4842bd](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=d7f8c04a449bb316eefafd27db4842bd)
