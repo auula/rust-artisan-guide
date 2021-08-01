@@ -19,7 +19,7 @@
 
 - Jarvib Ding 
 - 期待更多人加入
-- 联系📮: deen.job@qq.com
+- 联系📮: ding@ibyte.me
 - 项目持续更新中...
 
 ## 讨论组
