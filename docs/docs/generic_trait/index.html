@@ -16,7 +16,7 @@
     
     
       
-        <title>Rust 字符串 - Rust中文宝典</title>
+        <title>Rust泛型和Trait系统 - Rust中文宝典</title>
       
     
     
@@ -111,7 +111,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Rust 字符串
+              Rust泛型和Trait系统
             
           </span>
         </div>
@@ -326,59 +326,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Rust 字符串
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../string_type/" class="md-nav__link">
         Rust 字符串
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    概 述
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#str" class="md-nav__link">
-    &amp;str字符串面量
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#string" class="md-nav__link">
-    String对象
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -530,11 +482,59 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../generic_trait/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Rust泛型和Trait系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Rust泛型和Trait系统
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    泛型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trait" class="md-nav__link">
+    特性trait
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    代码例子
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -732,21 +732,21 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    概 述
+    泛型
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#str" class="md-nav__link">
-    &amp;str字符串面量
+  <a href="#trait" class="md-nav__link">
+    特性trait
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#string" class="md-nav__link">
-    String对象
+  <a href="#_2" class="md-nav__link">
+    代码例子
   </a>
   
 </li>
@@ -763,40 +763,48 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/higker/learn-rust/edit/master/docs/docs/string_type.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/higker/learn-rust/edit/master/docs/docs/generic_trait.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>Rust 字符串</h1>
+                  <h1>Rust泛型和Trait系统</h1>
                 
-                <h2 id="_1">概 述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><code>Rust</code>语言提供了两种字符串，第一种<code>&amp;str</code>是核心内置的数据类型，第二种<code>String</code>是字符串对象，是标准库中的一个公开的结构体。</p>
-<h2 id="str"><code>&amp;str</code>字符串面量<a class="headerlink" href="#str" title="Permanent link">&para;</a></h2>
-<p>字符串面量在编译的时候就知道值的字符串类型，核心代码在<code>std:str</code>中就可以找得到，如果你感兴趣就看看源代码。</p>
-<p>使用例子：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+                <h2 id="_1">泛型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>泛型可以帮助程序员提高编写程序的通用性和开发效率，在运行的时指定数据类型的机制，一个代码模板可以适配多种常见，<code>Rust</code>中也具备这种特性，在<code>Rust</code>泛型是通过<code>&lt;T&gt;</code>这样的泛型语法来表示任意的数据类型。</p>
+<p>下面的代码定义了一个矩形他的<code>width</code>和<code>hight</code>是不确定的类型，所有使用泛型来代替。</p>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="w">    </span><span class="c1">// 字符串字面量模式是 静态的 这就意味着字符串字面量从创建时开始会一直保存到程序结束</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;上海&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">programmer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;rust coder&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;city {0} programmer = {1}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">city</span><span class="p">,</span><span class="w"> </span><span class="n">programmer</span><span class="p">);</span><span class="w"></span>
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// 矩形 泛型</span>
+<span class="cp">#[derive(Debug)]</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">Rectangle</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">width</span>: <span class="nc">T</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">hight</span>: <span class="nc">T</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<p>字符串面量默认就是“静态”的 你可以通过<code>static</code>关键字显示声明</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">name</span>: <span class="kp">&amp;</span><span class="o">&#39;</span><span class="nb">static</span> <span class="kt">str</span> <span class="o">=</span><span class="w"> </span><span class="s">&quot;Jarvib Ding&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;my name is {name}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">);</span><span class="w"></span>
+使用的时候则编译器会根据上下文我们传入的类型进行推断出来具体的类型。</p>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">rtl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rectangle</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">width</span>: <span class="mi">6</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">hight</span>: <span class="mi">12</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rtl</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="string"><code>String</code>对象<a class="headerlink" href="#string" title="Permanent link">&para;</a></h2>
-<p>字符串是标准库提供的，字符串对象是是一个 <code>长度可变的集合</code>，它是 <code>可变</code> 的而且使用 <code>UTF-8</code> 作为底层数据编码格式，字符串对象在 <code>heap</code> 中分配的，在运行的时候可以对其进行操作。</p>
-<ul>
-<li>一种是创建一个新的空字符串，使用 <code>String::new()</code> 静态方法。</li>
-<li>另一种是根据指定的字符串字面量来创建字符串对象，使用 <code>String::from()</code> 方法。</li>
-</ul>
-<p>简单使用示例:</p>
+我们还可以通过泛型为其特定的数据类型编写特有的函数。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -812,39 +820,179 @@
 13
 14
 15
-16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="w">    </span><span class="c1">// 字符串对象</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">phone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">new</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">phone</span><span class="p">.</span><span class="n">push_str</span><span class="p">(</span><span class="s">&quot;Apple iPhone 11&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">iphone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="n">phone</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">iphone</span><span class="p">);</span><span class="w"></span>
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// 为rectangle实现i32方法</span>
+<span class="k">impl</span><span class="w"> </span><span class="n">Rectangle</span><span class="o">&lt;</span><span class="kt">f32</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">area</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">f32</span> <span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">hight</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="w">    </span><span class="c1">// 1 {{Hello}}</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">hello_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">new</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">hello_string</span><span class="p">.</span><span class="n">push_str</span><span class="p">(</span><span class="s">&quot;{&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">hello_string</span><span class="p">.</span><span class="n">push_str</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">hello_string</span><span class="p">.</span><span class="n">push_str</span><span class="p">(</span><span class="s">&quot;}&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">hello_string</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">hello</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="n">hello</span><span class="p">)</span><span class="w"></span>
+<span class="c1">// 实现泛型trait</span>
+<span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Rectangle</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">widht</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kp">&amp;</span><span class="nc">T</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="o">&amp;</span><span class="bp">self</span><span class="p">.</span><span class="n">width</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">hight</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kp">&amp;</span><span class="nc">T</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="o">&amp;</span><span class="bp">self</span><span class="p">.</span><span class="n">hight</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<p>如果需要将字符串面量转成<code>Sting</code>对象你就需要使用<code>to_string()</code>，字符串面量是没有任何操作方法的，只能存储<code>字符串的内容</code>。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://getrust.tech&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">url</span><span class="p">.</span><span class="n">to_string</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">domain</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;https://&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;domain is {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">domain</span><span class="p">);</span><span class="w"></span>
+<h2 id="trait">特性<code>trait</code><a class="headerlink" href="#trait" title="Permanent link">&para;</a></h2>
+<p><code>trait</code>类似于其他语言里面的接口，可以把一些类型共有的函数抽象成一个<code>trait</code>，然后去实现特定的<code>trait</code>即可。</p>
+<p>下面第一个<code>Geometry</code>的特性里面有一个<code>area</code>纯虚函数，然后我们去实现它。</p>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// 接口特性</span>
+<span class="k">trait</span><span class="w"> </span><span class="n">Geometry</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">area</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// 为i32类型的实现求面积特性</span>
+<span class="k">impl</span><span class="w"> </span><span class="n">Geometry</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Rectangle</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">area</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">hight</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// 为rectangle实现i32方法</span>
+<span class="k">impl</span><span class="w"> </span><span class="n">Rectangle</span><span class="o">&lt;</span><span class="kt">f32</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">area</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">f32</span> <span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">hight</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<p>output:</p>
-<div class="highlight"><pre><span></span><code>domain is getrust.tech
+然后我们通过一个闭包函数来测试是否正确。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">rtl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rectangle</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">width</span>: <span class="mi">6</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">hight</span>: <span class="mi">12</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// method `area` not found for this</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;area = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rtl</span><span class="p">.</span><span class="n">area</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;widht = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rtl</span><span class="p">.</span><span class="n">widht</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;hight = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rtl</span><span class="p">.</span><span class="n">hight</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rtl</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">area_func</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">|</span><span class="n">g</span>: <span class="kp">&amp;</span><span class="nc">dyn</span><span class="w"> </span><span class="n">Geometry</span><span class="o">|</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;area_func = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="n">area</span><span class="p">());</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">area_func</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rtl</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
+</td></tr></table>
+<p><strong>下面是一个综合例子，一个计算机实现了USB协议！</strong></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Computer</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">brand</span>: <span class="nb">String</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">trait</span><span class="w"> </span><span class="n">USB2</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">usb_2</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">trait</span><span class="w"> </span><span class="n">USB3</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">usb_3</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">USB2</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Computer</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">usb_2</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{} impl usb2.0 &quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="bp">self</span><span class="p">.</span><span class="n">brand</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">USB3</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Computer</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">usb_3</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{} impl usb3.0 &quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="bp">self</span><span class="p">.</span><span class="n">brand</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// usb(pc:impl USB3+USB2)</span>
+<span class="k">fn</span> <span class="nf">usb</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pc</span>: <span class="nc">T</span><span class="p">)</span><span class="w"></span>
+<span class="k">where</span><span class="w"></span>
+<span class="w">    </span><span class="n">T</span>: <span class="nc">USB3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">USB2</span><span class="p">,</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">pc</span><span class="p">.</span><span class="n">usb_2</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">pc</span><span class="p">.</span><span class="n">usb_3</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">usb</span><span class="p">(</span><span class="n">Computer</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">brand</span>: <span class="s">&quot;Dell&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span><span class="w"></span>
+<span class="w">    </span><span class="p">})</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="_2">代码例子<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li>相关API文档:<a href="https://doc.rust-lang.org/std/string/struct.String.html">https://doc.rust-lang.org/std/string/struct.String.html</a></li>
+<li><a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=01247d98e555d76b0db7ba64f9f1d5af">https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=01247d98e555d76b0db7ba64f9f1d5af</a></li>
 </ul>
                 
               
@@ -864,7 +1012,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../variable/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../higher/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -873,19 +1021,19 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                Rust 变量定义
+                Rust高阶函数
               </div>
             </div>
           </a>
         
         
-          <a href="../operator/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ownership/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                Rust 运算符
+                Rust ownership
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

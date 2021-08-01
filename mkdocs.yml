@@ -59,6 +59,7 @@ nav:
                   - "VecDeque容器类型": docs/vecdeque.md
                   - "HashMap容器类型": docs/hashmap.md
                   - "Rust高阶函数": docs/higher.md
+                  - "Rust泛型和Trait系统": docs/generic_trait.md
         - 高级部分:
                   - "Rust ownership": docs/ownership.md
                   - "Rust 模块Modules": modules.md
