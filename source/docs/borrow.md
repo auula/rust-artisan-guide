@@ -129,3 +129,6 @@ fn main() {
     println!("{}", x); // 30
 }    
 ```
+
+## 其他
+- [https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=f8a0ba620e4227b38e808988406ad96a](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=f8a0ba620e4227b38e808988406ad96a)
