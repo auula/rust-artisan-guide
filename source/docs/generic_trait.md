@@ -8,7 +8,7 @@
 #[derive(Debug)]
 struct Rectangle<T> {
     width: T,
-    hight: T,
+    height: T,
 }
 ```
 使用的时候则编译器会根据上下文我们传入的类型进行推断出来具体的类型。
@@ -17,7 +17,7 @@ struct Rectangle<T> {
 fn main() {
     let rtl = Rectangle {
         width: 6,
-        hight: 12,
+        heigth: 12,
     };
 
     println!("{:?}", rtl);
@@ -29,7 +29,7 @@ fn main() {
 // 为rectangle实现i32方法
 impl Rectangle<f32> {
     pub fn area(&self) -> f32 {
-        self.width * self.hight
+        self.width * self.height
     }
 }
 
@@ -38,8 +38,8 @@ impl<T> Rectangle<T> {
     pub fn widht(&self) -> &T {
         &self.width
     }
-    pub fn hight(&self) -> &T {
-        &self.hight
+    pub fn height(&self) -> &T {
+        &self.height
     }
 }
 
@@ -60,14 +60,14 @@ trait Geometry {
 // 为i32类型的实现求面积特性
 impl Geometry for Rectangle<i32> {
     fn area(&self) -> i32 {
-        self.width * self.hight
+        self.width * self.height
     }
 }
 
 // 为rectangle实现i32方法
 impl Rectangle<f32> {
     pub fn area(&self) -> f32 {
-        self.width * self.hight
+        self.width * self.height
     }
 }
 ```
@@ -77,13 +77,13 @@ impl Rectangle<f32> {
 fn main() {
     let rtl = Rectangle {
         width: 6,
-        hight: 12,
+        height: 12,
     };
 
     // method `area` not found for this
     println!("area = {}", rtl.area());
     println!("widht = {}", rtl.widht());
-    println!("hight = {}", rtl.hight());
+    println!("hight = {}", rtl.height());
     println!("{:?}", rtl);
 
     let area_func = |g: &dyn Geometry| println!("area_func = {}", g.area());

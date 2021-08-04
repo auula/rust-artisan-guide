@@ -794,7 +794,7 @@
 <span class="cp">#[derive(Debug)]</span><span class="w"></span>
 <span class="k">struct</span> <span class="nc">Rectangle</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">width</span>: <span class="nc">T</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="n">hight</span>: <span class="nc">T</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">height</span>: <span class="nc">T</span><span class="p">,</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
@@ -809,7 +809,7 @@
 8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">rtl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rectangle</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">width</span>: <span class="mi">6</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="n">hight</span>: <span class="mi">12</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">heigth</span>: <span class="mi">12</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="p">};</span><span class="w"></span>
 
 <span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rtl</span><span class="p">);</span><span class="w"></span>
@@ -835,7 +835,7 @@
 16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// 为rectangle实现i32方法</span>
 <span class="k">impl</span><span class="w"> </span><span class="n">Rectangle</span><span class="o">&lt;</span><span class="kt">f32</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">area</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">f32</span> <span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">hight</span><span class="w"></span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">height</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
@@ -844,8 +844,8 @@
 <span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">widht</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kp">&amp;</span><span class="nc">T</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="o">&amp;</span><span class="bp">self</span><span class="p">.</span><span class="n">width</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">hight</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kp">&amp;</span><span class="nc">T</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="o">&amp;</span><span class="bp">self</span><span class="p">.</span><span class="n">hight</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">height</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kp">&amp;</span><span class="nc">T</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="o">&amp;</span><span class="bp">self</span><span class="p">.</span><span class="n">height</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
@@ -878,14 +878,14 @@
 <span class="c1">// 为i32类型的实现求面积特性</span>
 <span class="k">impl</span><span class="w"> </span><span class="n">Geometry</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Rectangle</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">fn</span> <span class="nf">area</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">hight</span><span class="w"></span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">height</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
 <span class="c1">// 为rectangle实现i32方法</span>
 <span class="k">impl</span><span class="w"> </span><span class="n">Rectangle</span><span class="o">&lt;</span><span class="kt">f32</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">area</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">f32</span> <span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">hight</span><span class="w"></span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">height</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
@@ -909,13 +909,13 @@
 16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">rtl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rectangle</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">width</span>: <span class="mi">6</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="n">hight</span>: <span class="mi">12</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">height</span>: <span class="mi">12</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="p">};</span><span class="w"></span>
 
 <span class="w">    </span><span class="c1">// method `area` not found for this</span>
 <span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;area = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rtl</span><span class="p">.</span><span class="n">area</span><span class="p">());</span><span class="w"></span>
 <span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;widht = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rtl</span><span class="p">.</span><span class="n">widht</span><span class="p">());</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;hight = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rtl</span><span class="p">.</span><span class="n">hight</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;hight = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rtl</span><span class="p">.</span><span class="n">height</span><span class="p">());</span><span class="w"></span>
 <span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rtl</span><span class="p">);</span><span class="w"></span>
 
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">area_func</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">|</span><span class="n">g</span>: <span class="kp">&amp;</span><span class="nc">dyn</span><span class="w"> </span><span class="n">Geometry</span><span class="o">|</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;area_func = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="n">area</span><span class="p">());</span><span class="w"></span>
