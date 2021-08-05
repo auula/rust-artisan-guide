@@ -44,3 +44,6 @@ fn find_long_str<'a>(x: &'a str, y: &'a str) -> &'a str {
 - 如果是在函数里面创建的资源，应该是直接返回其所有权，而不是引用。
 - 每个生命周期标注都有不同的生命周期，如果有输入的生命周期，那么输出的生命周期也是一致的。
 - `self`的生命周期会被赋给输出的生命周期。
+
+## 其他
+- [https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=a868aa030fa934b22cd770727f42724d](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=a868aa030fa934b22cd770727f42724d)
