@@ -821,7 +821,7 @@
                   <h1>Rust 生命周期</h1>
                 
                 <h2 id="lifetime"><code>lifetime</code>寿命<a class="headerlink" href="#lifetime" title="Permanent link">&para;</a></h2>
-<p><code>Rust</code>中的每一个引用都有一个有效的作用域，生命周期就是为这个作用域服务的，大部分生命周期编译器可以推断出来，可以是隐式的。但是如果在某些情况下编译器就无法正常推断出来了，需要我们自己手动标注，标注生命周期语法就是<code>&lt;'a&gt;</code>这样的语法。</p>
+<p><code>Rust</code>中的每一个引用都有一个有效的作用域，生命周期就是为这个作用域服务的，大部分生命周期编译器可以推断出来，可以是隐式的。但是如果在某些情况下编译器就无法正常推断出来了，需要我们自己手动标注，标注生命周期语法就是<code>'a</code>这样的语法。</p>
 <h2 id="_1">为什么需要生命周期？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>例如下面例子就是在两个字符串切片里面查找最长的那个并且返回！</p>
 <p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -866,7 +866,7 @@
 <p>加了生命周期标识符之后，如果我把<code>let str2 = String::from(" World!");</code>取消注释放在一个内部作用域里面定义，那么这时调用
 <code>find_long_str</code>编译器就会报错，因为我在下面出了作用域还使用了<code>find_long_str</code>返回的结果，而这个结果可能就是<code>str2</code>的内容，
 使用这个是违反了所有权规则的，<code>str2</code>离开内部作用域就被销毁了。</p>
-<p>在标准生命周期<code>fn find_long_str&lt;'a&gt;(x: &amp;'a str, y: &amp;'a str) -&gt; &amp;'a str</code>之后编译器就知道输入参数和返回参数生命周期是要一致的，并且返回值生命周期肯定是取生命周期最短的那个的。</p>
+<p>在标注生命周期<code>fn find_long_str&lt;'a&gt;(x: &amp;'a str, y: &amp;'a str) -&gt; &amp;'a str</code>之后编译器就知道输入参数和返回参数生命周期是要一致的，并且返回值生命周期肯定是取生命周期最短的那个的。</p>
 <h2 id="_2">总结<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li>生命周期是确保被引用的值是有效的。</li>
