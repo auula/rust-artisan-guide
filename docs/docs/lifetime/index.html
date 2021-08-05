@@ -863,6 +863,7 @@
 <span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
+<p><img alt="大致过程图" src="https://tva1.sinaimg.cn/large/008i3skNgy1gt68o41m7aj30po0g0q3r.jpg" /></p>
 <p>加了生命周期标识符之后，如果我把<code>let str2 = String::from(" World!");</code>取消注释放在一个内部作用域里面定义，那么这时调用
 <code>find_long_str</code>编译器就会报错，因为我在下面出了作用域还使用了<code>find_long_str</code>返回的结果，而这个结果可能就是<code>str2</code>的内容，
 使用这个是违反了所有权规则的，<code>str2</code>离开内部作用域就被销毁了。</p>
@@ -877,6 +878,7 @@
 </ul>
 <h2 id="_3">其他<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
+<li>当然上面是我刚刚入坑总结话，有错误地方望大佬指教！</li>
 <li><a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=a868aa030fa934b22cd770727f42724d">https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=a868aa030fa934b22cd770727f42724d</a></li>
 </ul>
                 

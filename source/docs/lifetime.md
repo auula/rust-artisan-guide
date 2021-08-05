@@ -30,6 +30,8 @@ fn find_long_str<'a>(x: &'a str, y: &'a str) -> &'a str {
     println!("{}", result);
 ```
 
+![大致过程图](https://tva1.sinaimg.cn/large/008i3skNgy1gt68o41m7aj30po0g0q3r.jpg)
+
 加了生命周期标识符之后，如果我把`let str2 = String::from(" World!");`取消注释放在一个内部作用域里面定义，那么这时调用
 `find_long_str`编译器就会报错，因为我在下面出了作用域还使用了`find_long_str`返回的结果，而这个结果可能就是`str2`的内容，
 使用这个是违反了所有权规则的，`str2`离开内部作用域就被销毁了。
@@ -44,4 +46,5 @@ fn find_long_str<'a>(x: &'a str, y: &'a str) -> &'a str {
 - `self`的生命周期会被赋给输出的生命周期。
 
 ## 其他
+- 当然上面是我刚刚入坑总结话，有错误地方望大佬指教！
 - [https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=a868aa030fa934b22cd770727f42724d](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=a868aa030fa934b22cd770727f42724d)
