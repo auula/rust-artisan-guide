@@ -16,7 +16,7 @@
     
     
       
-        <title>Rust 数据类型 - Rust中文宝典</title>
+        <title>Rust 生命周期 - Rust中文宝典</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#lifetime" class="md-skip">
           跳转至
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Rust 数据类型
+              Rust 生命周期
             
           </span>
         </div>
@@ -242,14 +242,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
       
       <label class="md-nav__link" for="nav-2">
         基础知识
@@ -302,94 +300,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Rust 数据类型
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../scalar_type/" class="md-nav__link">
         Rust 数据类型
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    概 述
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scalar-type" class="md-nav__link">
-    Scalar Type
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    整 型
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    浮点型
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    布尔型
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    字符类型
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    其他补充
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    其他资料
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -586,12 +501,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
       
       <label class="md-nav__link" for="nav-3">
         高级部分
@@ -632,11 +549,59 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../lifetime/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Rust 生命周期
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Rust 生命周期
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lifetime" class="md-nav__link">
+    lifetime寿命
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    为什么需要生命周期？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -790,57 +755,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    概 述
+  <a href="#lifetime" class="md-nav__link">
+    lifetime寿命
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#scalar-type" class="md-nav__link">
-    Scalar Type
+  <a href="#_1" class="md-nav__link">
+    为什么需要生命周期？
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    整 型
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    浮点型
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    布尔型
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    字符类型
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    其他补充
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    其他资料
+    总结
   </a>
   
 </li>
@@ -857,162 +787,35 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/higker/learn-rust/edit/master/docs/docs/scalar_type.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/higker/learn-rust/edit/master/docs/docs/lifetime.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>Rust 数据类型</h1>
+                  <h1>Rust 生命周期</h1>
                 
-                <h2 id="_1">概 述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p><code>Rust</code>是一门强类型的语言，所以<code>类型系统</code>也是这门语言的重中之重，它体现了语言所支持的不同类型的值，举个例子，比如我们说 <code>类型系统</code> 存在的目的，就是<code>程序在存储或操作某个数之前检查这个数的有效性</code>。</p>
-</blockquote>
-<h2 id="scalar-type">Scalar Type<a class="headerlink" href="#scalar-type" title="Permanent link">&para;</a></h2>
-<p><code>Rust</code> 语言中有四种标量数据类型：</p>
-<ul>
-<li>整型</li>
-<li>浮点型</li>
-<li>布尔类型</li>
-<li>字符类型</li>
-</ul>
-<blockquote>
-<p>接下来我们会对每种标量数据类型做一个简单的介绍。</p>
-</blockquote>
-<h2 id="_2">整 型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>整型能够囊括所有的数字，虽然不可能无穷大，但已经大到足够使用了。</p>
-<ul>
-<li>
-<p>最大的整型为 <code>340282366920938463463374607431768211455</code>，由 <code>std::u128:MAX</code> 定义。</p>
-</li>
-<li>
-<p>最小的整型为<code>-170141183460469231731687303715884105728</code>，由 <code>std::i128:MIN</code> 定义。</p>
-</li>
-<li>
-<p>整数类型在<code>Rust</code>中又分为:<code>signed</code>和<code>unsigned</code>。</p>
-</li>
-<li>
-<p>有符号整数类型可以存储负数，但是无符号的只能存储整数不能存储负数。</p>
-</li>
-</ul>
-<p><strong>类型列表👇</strong></p>
-<blockquote>
-<p>当前只列出整数类型，其他类型自行查询资料。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>size</th>
-<th>signed</th>
-<th>unsigned</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>8bit</td>
-<td>i8</td>
-<td>u8</td>
-</tr>
-<tr>
-<td>16bit</td>
-<td>i16</td>
-<td>u16</td>
-</tr>
-<tr>
-<td>32bit</td>
-<td>i32</td>
-<td>u32</td>
-</tr>
-<tr>
-<td>64bit</td>
-<td>i64</td>
-<td>u64</td>
-</tr>
-<tr>
-<td>128bit</td>
-<td>i128</td>
-<td>u128</td>
-</tr>
-<tr>
-<td>Arch</td>
-<td>isize</td>
-<td>usize</td>
-</tr>
-</tbody>
-</table>
-<p><code>arch</code> 是由 <code>CPU</code> 构架决定的大小的整型类型，大小为 <code>arch</code> 的整数在 <code>x86</code> 机器上为 <code>32</code> 位，在 <code>x64</code> 机器上为 <code>64</code> 位。
-每种整型并不都是能存储任意数字的，每种整型只能装下固定大小的数字，如果给予的数字超出了整型的范围则会发生溢出，相信你如果之前写过<code>Java</code>也有体会。</p>
-<p>代码例子:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">(){</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 整型</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">00_32</span><span class="p">;</span><span class="w"> </span><span class="c1">// default scalar type i32</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">age</span>:<span class="kt">u8</span> <span class="o">=</span><span class="w"> </span><span class="mh">0x16</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">num</span>:<span class="kt">i64</span> <span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">64</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">iarch</span>:<span class="kt">isize</span> <span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">uarch</span>:<span class="kt">usize</span> <span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;i = {} age = {} num = {}&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">age</span><span class="p">,</span><span class="n">num</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;iarch = {} uarch = {}&quot;</span><span class="p">,</span><span class="n">iarch</span><span class="p">,</span><span class="n">uarch</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
-<blockquote>
-<p>整数支持整数中间存在一个下划线和十六进制赋值，如果给予的数字超出了整型的范围则会发生溢出。</p>
-</blockquote>
-<h2 id="_3">浮点型<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>区分整型和浮点型的唯一指标就是 <code>有没有小数点</code>且不能互相转换，定义浮点型变量的时候要注意每种浮点型的最大值和最小值，如果超出可能会赋值失败，也有可能结果不是预期的结果。</p>
+                <h2 id="lifetime"><code>lifetime</code>寿命<a class="headerlink" href="#lifetime" title="Permanent link">&para;</a></h2>
+<p><code>Rust</code>中的每一个引用都有一个有效的作用域，生命周期就是为这个作用域服务的，大部分生命周期编译器可以推断出来，可以是隐式的。但是如果在某些情况下编译器就无法正常推断出来了，需要我们自己手动标注，标注生命周期语法就是<code>&lt;'a&gt;</code>这样的语法。</p>
+<h2 id="_1">为什么需要生命周期？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>例如下面例子就是在两个字符串切片里面查找最长的那个并且返回！</p>
 <p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
 5
 6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">(){</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 浮点型</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">64.00</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;f is {:?}&quot;</span><span class="p">,</span><span class="n">f</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">f</span>:<span class="kt">i64</span> <span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;f is {:?}&quot;</span><span class="p">,</span><span class="n">f</span><span class="p">)</span><span class="w"></span>
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// &#39;a 是指3个引用的作用域生命周期要一致</span>
+<span class="k">fn</span> <span class="nf">find_long_str</span><span class="o">&lt;&#39;</span><span class="na">a</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span>: <span class="kp">&amp;</span><span class="o">&#39;</span><span class="na">a</span> <span class="kt">str</span><span class="p">,</span><span class="w"> </span><span class="n">y</span>: <span class="kp">&amp;</span><span class="o">&#39;</span><span class="na">a</span> <span class="kt">str</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kp">&amp;</span><span class="o">&#39;</span><span class="na">a</span> <span class="kt">str</span> <span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">x</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">y</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-这段代码里面会发生编译错误，<code>let f:i64 = f;</code></p>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">error</span><span class="p">[</span><span class="n">E0308</span><span class="p">]</span>: <span class="nc">mismatched</span><span class="w"> </span><span class="n">types</span><span class="w"></span>
-<span class="w">  </span><span class="o">-</span>-&gt; <span class="nc">scalar_type</span><span class="p">.</span><span class="n">rs</span>:<span class="mi">21</span>:<span class="mi">17</span><span class="w"></span>
-<span class="w">   </span><span class="o">|</span><span class="w"></span>
-<span class="hll"><span class="mi">21</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="kd">let</span><span class="w"> </span><span class="n">f</span>:<span class="kt">i64</span> <span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">;</span><span class="w"></span>
-</span><span class="w">   </span><span class="o">|</span><span class="w">           </span><span class="o">---</span><span class="w">   </span><span class="o">^</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="err">`</span><span class="kt">i64</span><span class="err">`</span><span class="p">,</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="n">floating</span><span class="o">-</span><span class="n">point</span><span class="w"> </span><span class="n">number</span><span class="w"></span>
-<span class="w">   </span><span class="o">|</span><span class="w">           </span><span class="o">|</span><span class="w"></span>
-<span class="w">   </span><span class="o">|</span><span class="w">           </span><span class="n">expected</span><span class="w"> </span><span class="n">due</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">this</span><span class="w"></span>
-
-<span class="n">error</span>: <span class="nc">aborting</span><span class="w"> </span><span class="n">due</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">previous</span><span class="w"> </span><span class="n">error</span><span class="w"></span>
-
-<span class="n">For</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">error</span><span class="p">,</span><span class="w"> </span><span class="kr">try</span><span class="w"> </span><span class="err">`</span><span class="n">rustc</span><span class="w"> </span><span class="o">--</span><span class="n">explain</span><span class="w"> </span><span class="n">E0308</span><span class="err">`</span><span class="p">.</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
-因为新的<code>f</code>类型是<code>i64</code>，不能自动类型转换！！Rust 中的数字类型与 C/C++ 中不同的是 Rust 语言不允许类型自动转换。</p>
-<h2 id="_4">布尔型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>布尔类型：只有两个可能的取值 <code>true</code> 或 <code>false</code> 。</p>
-<h2 id="_5">字符类型<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p><code>Rust</code> 使用 <code>char</code> 作为字符数据类型，这点可谓是继承了 <code>C/C++</code>。但与 <code>C/C++</code> 不同的是：<code>Rust</code> 使用 <code>UTF-8</code> 作为底层的编码，<code>Rust</code> 选用 <code>UTF-8</code> 作为底层编码可谓是顺应时代的潮流。因为编程早就不极限于拉丁语系的国家，像中国、印度、日本等国家都有大量的程序员，并且互联网是开放的，而不只限于存在于中国局部的，所以<code>Rust</code>使用的<code>UTF-8</code>编码。</p>
+上面我就加注了生命周期标识符，如果不加编译器会报错，原因是因为我们这个函数引用的是外部的变量，不能确定引用的变量是否已经被销毁了，那这样就是悬垂引用！</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -1022,54 +825,29 @@
  7
  8
  9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">(){</span><span class="w"> </span>
-<span class="w">    </span><span class="c1">// 字符</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">special_character</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;@&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">//default</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">alphabet</span>:<span class="kt">char</span> <span class="o">=</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">chinese</span>:<span class="kt">char</span> <span class="o">=</span><span class="w"> </span><span class="sc">&#39;丁&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">emoji</span>:<span class="kt">char</span> <span class="o">=</span><span class="w"> </span><span class="sc">&#39;🦀&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 螃蟹emoji</span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;special character is {}&quot;</span><span class="p">,</span><span class="n">special_character</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;alphabet is {}&quot;</span><span class="p">,</span><span class="n">alphabet</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;chinese is {:?}&quot;</span><span class="p">,</span><span class="n">chinese</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;emoji is {}&quot;</span><span class="p">,</span><span class="n">emoji</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">str1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">str2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//let str2 = String::from(&quot; World!&quot;);</span>
+<span class="w">        </span><span class="n">str2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot; World!&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find_long_str</span><span class="p">(</span><span class="n">str1</span><span class="p">.</span><span class="n">as_str</span><span class="p">(),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">str2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 这里借用检测就提示 引用了已经销毁的资源了</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="_6">其他补充<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>数字字面值</th>
-<th>例子</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Decimal</td>
-<td><code>98_222</code></td>
-</tr>
-<tr>
-<td>Hex</td>
-<td><code>0xff</code></td>
-</tr>
-<tr>
-<td>Octal</td>
-<td><code>0o77</code></td>
-</tr>
-<tr>
-<td>Binary</td>
-<td><code>0b1111_0000</code></td>
-</tr>
-<tr>
-<td>Byte(<code>u8</code>)only</td>
-<td>b<code>'A'</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="_7">其他资料<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>加了生命周期标识符之后，如果我把<code>let str2 = String::from(" World!");</code>取消注释放在一个内部作用域里面定义，那么这时调用
+<code>find_long_str</code>编译器就会报错，因为我在下面出了作用域还使用了<code>find_long_str</code>返回的结果，而这个结果可能就是<code>str2</code>的内容，
+使用这个是违反了所有权规则的，<code>str2</code>离开内部作用域就被销毁了。</p>
+<p>在标准生命周期<code>fn find_long_str&lt;'a&gt;(x: &amp;'a str, y: &amp;'a str) -&gt; &amp;'a str</code>之后编译器就知道输入参数和返回参数生命周期是要一致的，并且返回值生命周期肯定是取生命周期最短的那个的。</p>
+<h2 id="_2">总结<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li>https://github.com/higker/learning-rust-zh</li>
+<li>生命周期是确保被引用的值是有效的。</li>
+<li>引用的生命周期肯定是小于或者等于资源所有者的。</li>
+<li>如果是在函数里面创建的资源，应该是直接返回其所有权，而不是引用。</li>
+<li>每个生命周期标注都有不同的生命周期，如果有输入的生命周期，那么输出的生命周期也是一致的。</li>
+<li><code>self</code>的生命周期会被赋给输出的生命周期。</li>
 </ul>
                 
               
@@ -1089,7 +867,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../hello_world/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../borrow/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1098,25 +876,11 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                Rust 您好世界
+                Rust 引用和借用规则
               </div>
             </div>
           </a>
         
-        
-          <a href="../variable/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  下一页
-                </span>
-                Rust 变量定义
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
         
       </nav>
     </div>

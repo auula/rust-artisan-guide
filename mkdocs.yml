@@ -63,6 +63,7 @@ nav:
         - 高级部分:
                   - "Rust ownership": docs/ownership.md
                   - "Rust 引用和借用规则": docs/borrow.md
+                  - "Rust 生命周期": docs/lifetime.md
                   - "Rust 模块Modules": modules.md
                   - "Rust Collection": collection.md
                   - "Rust 错误处理": error.md
