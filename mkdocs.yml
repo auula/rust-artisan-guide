@@ -1,7 +1,7 @@
 site_name: Rust中文宝典
 site_author: "Jarvib Ding"
-repo_name: "higker/learn-rust"
-repo_url: "https://github.com/higker/learn-rust"
+repo_name: "auula/learn-rust"
+repo_url: "https://github.com/auula/learn-rust"
 docs_dir: "source"
 site_dir: "docs"
 
