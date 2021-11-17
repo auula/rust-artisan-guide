@@ -1,5 +1,5 @@
 site_name: Rust中文宝典
-site_author: "Jarvib Ding"
+site_author: "Leon Ding"
 repo_name: "auula/learn-rust"
 repo_url: "https://github.com/auula/learn-rust"
 docs_dir: "source"
