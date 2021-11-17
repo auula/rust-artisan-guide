@@ -13,11 +13,11 @@
 ## 阅读和参入
  
 - 阅读地址：[https://getrust.tech](https://getrust.tech)
-- 本项目地址：[https://github.com/higker/learn-rust](https://github.com/higker/learn-rust)
-- 本项目源代码：[https://github.com/higker/learning-rust-zh](https://github.com/higker/learning-rust-zh)
+- 本项目地址：[https://github.com/auula/learn-rust](https://github.com/auula/learn-rust)
+- 本项目源代码：[https://github.com/auula/learning-rust-zh](https://github.com/auula/learning-rust-zh)
 ## 维护者
 
-- Jarvib Ding 
+- Leon Ding 
 - 期待更多人加入
 - 联系📮: ding@ibyte.me
 - 项目持续更新中...
