@@ -1,4 +1,4 @@
-# Rust EBook
+# Rust eBook
 
 ![Rust](https://www.rust-lang.org/static/images/ferris.gif)
 
