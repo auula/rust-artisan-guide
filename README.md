@@ -1,4 +1,4 @@
-# Rust Cookbook
+# Rust CookBook
 
 ![Rust](https://www.rust-lang.org/static/images/ferris.gif)
 
