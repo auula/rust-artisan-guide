@@ -1,4 +1,4 @@
-# Crab Book
+# Crab Guide Book
 
 ![Rust](https://www.rust-lang.org/static/images/ferris.gif)
 
