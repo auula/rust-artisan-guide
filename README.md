@@ -1,8 +1,12 @@
-# Crab Guide Book
+# Rust Artisan Guide
+
+---
 
 ![Rust](https://www.rust-lang.org/static/images/ferris.gif)
 
 这是一个分享`Rust`学习资料的在线学习网站  [https://rust.ibyte.me](https://rust.ibyte.me)📚。
+
+---
 
 ## 目的是什么❓
 
@@ -10,10 +14,14 @@
 
 本电子书主要面向有一定其他编程语言开发经验的开发者快速上手 `Rust`，不会涉及到一些非常具体和细节的问题，非零基础教程，编程新手可以先补一补开发基础。 
 
+---
+
 ## 阅读和参入
  
 - 阅读地址：[https://rust.ibyte.me](https://rust.ibyte.me)
 - 本项目地址：[https://github.com/auula/rust-ebook](https://github.com/auula/rust-ebook)
+
+---
 
 ## 许可协议
 
